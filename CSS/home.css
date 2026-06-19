@@ -1,0 +1,50 @@
+.carousel {
+    margin-top: 60px;
+    width: 100vw;       /* Force full viewport width */
+    max-width: 100%;
+    overflow: hidden;   /* Hides the off-screen cards and scrollbar completely */
+    display: flex;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    gap: 2vw;           
+    padding-right: 2vw; 
+    flex-shrink: 0;    
+    
+    /* The loop animation */
+    animation: slide infinite linear 25s; 
+}
+
+/* Pause the slider when a user hovers over an image */
+.carousel:hover .group {
+    animation-play-state: paused;
+}
+
+.card {
+    /* Calculates card size relative to the user's screen */
+    height: 80vh;      
+    width: 60vw;        
+    flex-shrink: 0;    
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Crops and scales cleanly without stretching */
+    display: block;
+}
+
+/* Keyframes for the sliding animation */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        
+        transform: translateX(-100%); 
+    }
+}
