@@ -1,50 +1,89 @@
 .navbar {
     position: fixed;
     top: 20px;
-    left: 10%;
+    
+    
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: 1200px;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background-color: #02122F;
+    padding: 15px 40px;
+    
+    
+    background-color: rgba(2, 18, 47, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
     color: #8BA3C5;
     font-family: 'Saira', sans-serif;
-    font-size: 25px;
+    font-size: 22px; 
     font-weight: 600;
     border-radius: 100px;
-    z-index: 10;
+    
+   
+    z-index: 1000; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
-.nav-links{
+.nav-links {
     justify-content: center;
     display: flex;
-    gap: 55px;
+    gap: 40px;  
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.nav-links a{
-    text-decoration: none;
-    color: #8BA3C5;
+.nav-links li {
+    position: relative; /* Anchor point for the underline */
 }
 
-.nav-links a:hover{
-    color: #F0ECDD;
-    text-decoration: underline;
+.nav-links a {
+    text-decoration: none;
+    color: #8BA3C5;
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.3s ease; /* Smooth color swap */
+}
 
+/* MODIFIED: Custom Hardware-Accelerated Underline */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #F0ECDD;
+    border-radius: 2px;
+    transform: scaleX(0); /* Hidden by default */
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* MODIFIED: Merged active and hover triggers to use the smooth animation */
+.nav-links a:hover,
+.nav-links a.active {
+    color: #F0ECDD;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1); /* Smoothly grows from center-left */
+    transform-origin: left;
 }
 
 .navbar .logo {
     font-size: 30px;
     font-weight: 700;
     color: #F0ECDD;
+    letter-spacing: 0.5px;
 }
-
-.nav-link.active {
-    color: #F0ECDD;
-}
-
 
 
 
