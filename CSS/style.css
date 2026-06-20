@@ -1,17 +1,15 @@
 .navbar {
     position: fixed;
     top: 20px;
-    
-    
     left: 50%;
     transform: translateX(-50%);
-    width: 85%;
+    width: 94%;
     max-width: 1200px;
     
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
+    padding: 25px 50px;
     
     
     background-color: rgba(2, 18, 47, 0.9);
