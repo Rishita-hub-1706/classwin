@@ -102,3 +102,43 @@
         transform: translateX(-100%); 
     }
 }
+
+
+/* Ensure the page wrapper clears out browser defaults */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents unwanted horizontal layout breaking */
+}
+
+/* CAROUSEL FIXED POSITION TWEAK */
+.carousel {
+    margin-top: 140px;  /* Pushes carousel safely below your large navbar */
+    margin-bottom: 0;   /* Collapses any bottom margin to prevent empty gaps */
+    width: 100vw;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+/* NEW: Middle Banner Styling */
+.mid-banner {
+    width: 100%;
+    margin: 0;          /* Zero out margins completely to prevent ghost gaps */
+    padding: 0;
+    line-height: 0;     /* Removes baseline spacing inline elements often create */
+    overflow: hidden;
+}
+
+.mid-banner img {
+    width: 100%;
+    height: auto;       /* Maintains perfect aspect ratio */
+    max-height: 50vh;   /* Adjust this if you want the banner shorter/taller */
+    object-fit: cover;
+    display: block;     /* Removes the browser's default bottom text gap */
+}
+
+/* FOOTER MARGIN TWEAK */
+.footer {
+    margin-top: 0;      /* Keeps footer perfectly flush against the new image banner */
+}
