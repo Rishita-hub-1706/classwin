@@ -104,7 +104,7 @@
 }
 
 
-/* Ensure the page wrapper clears out browser defaults */
+
 body, html {
     margin: 0;
     padding: 0;
@@ -121,24 +121,38 @@ body, html {
     display: flex;
 }
 
-/* NEW: Middle Banner Styling */
+/*  Middle Banner Styling */
 .mid-banner {
-    width: 100%;
-    margin: 0;          /* Zero out margins completely to prevent ghost gaps */
-    padding: 0;
-    line-height: 0;     /* Removes baseline spacing inline elements often create */
+    position: relative;
+    z-index: 20;
+    margin-top: 80px;      /* Creates a clean gap below the sliding panel */
+    margin-bottom: 80px;   /* Creates a clean gap above the footer */
+    margin-left: 5%;       /* Shifts it slightly away from the left edge */
+    width: 60%;            /* Keeps it to a side instead of stretching full-screen */
+    max-width: 800px;
+    border-radius: 25px;   /* Clean rounded styling layout */
     overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .mid-banner img {
     width: 100%;
-    height: auto;       /* Maintains perfect aspect ratio */
-    max-height: 50vh;   /* Adjust this if you want the banner shorter/taller */
+    height: auto;
+    display: block;
     object-fit: cover;
-    display: block;     /* Removes the browser's default bottom text gap */
+}
+
+/* Triggered systematically via JavaScript */
+.mid-banner.reveal {
+    opacity: 1;
+    transform: translateX(0) !important; /* Slides smoothly back into place */
 }
 
 /* FOOTER MARGIN TWEAK */
 .footer {
-    margin-top: 0;      /* Keeps footer perfectly flush against the new image banner */
+    margin-top: 0;      /* Keeps footer perfectly flush against the image banner */
 }
