@@ -1,27 +1,35 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scroll breaking */
+}
+
+
 .carousel {
-    margin-top: 60px;
-    width: 100vw;       /* Force full viewport width */
+    margin-top: 180px;   /* Pushes carousel safely below your fixed navbar */
+    margin-bottom: 0;   
+    width: 100vw;       
     max-width: 100%;
-    overflow: hidden;   /* Hides the off-screen cards and scrollbar completely */
+    overflow: hidden;   /* Hides off-screen cards completely */
     display: flex;
 }
 
 .group {
     display: flex;
     align-items: center;
-    gap: 2vw;           
+    gap: 2vw;          
     padding-right: 2vw; 
     flex-shrink: 0;    
-    
-    /* The loop animation */
-    animation: slide infinite linear 25s; 
+    animation: slide infinite linear 25s; /* Smooth infinite loop */
 }
 
-/* Pause the slider when a user hovers over an image */
+/* Pause the slider when a user hovers over the carousel container */
 .carousel:hover .group {
     animation-play-state: paused;
 }
 
+/* --- CAROUSEL CARDS --- */
 .card {
     height: 80vh;
     width: 60vw;
@@ -30,61 +38,54 @@
     overflow: hidden;
     position: relative; /* Context for absolute positioning of text overlay */
     cursor: pointer;
-    
-    /* Smooth transitions for the "pop up" effects */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
 }
 
 .card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* Crops and scales cleanly without stretching */
+    object-fit: cover;  
     display: block;
-    transition: transform 0.5s ease; /* For image zoom effect */
+    transition: transform 0.5s ease; /* For image hover zoom */
 }
 
-/* --- THE POP UP & ZOOM EFFECT --- */
-/* Slightly dim and shrink other cards when hovering over the carousel... */
-.carousel:hover .card{
+/* --- THE POP UP & DIMMING INTERACTIONS --- */
+.carousel:hover .card {
     transform: scale(0.96);
     filter: brightness(0.7);
 }
 
-/* Slightly dim and shrink other cards when hovering over the carousel... */
 .carousel .card:hover {
     transform: scale(1.04);
     filter: brightness(1);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    z-index: 10; /* Ensures the popped-up card stays on top */
+    z-index: 10; /* Ensures the active popped-up card stays on top layer */
 }
 
 .card:hover img {
     transform: scale(1.08);
 }
 
+/* --- CARD TEXT OVERLAYS --- */
 .card-overlay {
     position: absolute;
-    inset: 0; /* Fills up the entire card area */
+    inset: 0; 
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Pushes text to the bottom */
+    justify-content: flex-end; /* Pushes text content tightly to the bottom */
     padding: 3rem;
     color: #ffffff;
-    font-family: sans-serif; /* Fallback font */
-    
-    /* Hidden by default, slides up from the bottom */
+    font-family: sans-serif; 
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Reveal text when the specific card is hovered */
 .card:hover .card-overlay {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 .card-overlay h3 {
     font-size: 2.5rem;
@@ -92,67 +93,87 @@
     font-weight: 700;
 }
 
-/* Keyframes for the sliding animation */
+/* Infinite Loop Keyframes */
 @keyframes slide {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        
-        transform: translateX(-100%); 
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
 }
 
 
-
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevents unwanted horizontal layout breaking */
+.banner-section {
+    display: flex !important;       
+    flex-direction: row !important; /* Strictly forces side-by-side positioning */
+    align-items: center !important; /* Centers elements vertically relative to each other */
+    justify-content: space-between !important;
+    gap: 60px;                      
+    margin: 100px auto !important;  /* Balanced spacing between carousel and footer */
+    width: 90% !important;                 
+    max-width: 1400px !important;
+    box-sizing: border-box;
 }
 
-/* CAROUSEL FIXED POSITION TWEAK */
-.carousel {
-    margin-top: 140px;  /* Pushes carousel safely below your large navbar */
-    margin-bottom: 0;   /* Collapses any bottom margin to prevent empty gaps */
-    width: 100vw;
-    max-width: 100%;
+/* Left-Side Image Column Wrapper */
+.banner-section .mid-banner {
+    flex: 1;                        
+    width: 50% !important;          
+    max-width: 50%;
+    border-radius: 25px;   
     overflow: hidden;
-    display: flex;
-}
-
-/*  Middle Banner Styling */
-.mid-banner {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 20;
-    margin-top: 80px;      /* Creates a clean gap below the sliding panel */
-    margin-bottom: 80px;   /* Creates a clean gap above the footer */
-    margin-left: 5%;       /* Shifts it slightly away from the left edge */
-    width: 60%;            /* Keeps it to a side instead of stretching full-screen */
-    max-width: 800px;
-    border-radius: 25px;   /* Clean rounded styling layout */
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-
-    opacity: 0;
-    transform: translateX(-100px);
-    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    /* Animation Initial States: Hidden and Left offset */
+    opacity: 0;                    
+    transform: translateX(-100px); 
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.mid-banner img {
+.banner-section .mid-banner img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
 }
 
-/* Triggered systematically via JavaScript */
-.mid-banner.reveal {
-    opacity: 1;
-    transform: translateX(0) !important; /* Slides smoothly back into place */
+/* Right-Side Content Column Wrapper */
+.banner-section .banner-content {
+    flex: 1;
+    width: 45% !important;          
+    max-width: 45%;
+    font-family: 'Saira', sans-serif;
+    text-align: left;               
+    
+    /* Animation Initial States: Hidden and Right offset */
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* FOOTER MARGIN TWEAK */
+.banner-section .banner-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #F0ECDD;             
+    margin: 0 0 20px 0;             
+}
+
+.banner-section .banner-content p {
+    font-size: 1.15rem;
+    line-height: 1.7;           
+    color: #8BA3C5;
+    margin: 0;
+}
+
+
+.banner-section .mid-banner.reveal,
+.banner-section .banner-content.reveal {
+    opacity: 1 !important;
+    transform: translateX(0) !important; /* Smoothly snaps back into position row alignment */
+}
+
+
 .footer {
-    margin-top: 0;      /* Keeps footer perfectly flush against the image banner */
+    margin-top: 0; /* Keeps footer flush relative to the page margin layouts */
 }

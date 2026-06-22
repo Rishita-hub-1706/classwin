@@ -2,8 +2,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Select the middle banner element
-    const banner = document.querySelector(".mid-banner");
+    // Select both the image banner and the accompanying text content block
+    const animatedElements = document.querySelectorAll(".mid-banner, .banner-content");
 
     // Configure the observer options
     const observerOptions = {
@@ -19,16 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("reveal");
                 observer.unobserve(entry.target); // Stop tracking once animated
-                console.log("Banner animated successfully!");
+                
             }
         });
     }, observerOptions);
 
-    // Track the banner if it exists on the current page
-    if (banner) {
-        scrollObserver.observe(banner);
+    // Check if we found any elements on the current page before observing
+    if (animatedElements.length > 0) {
+        animatedElements.forEach(element => {
+            scrollObserver.observe(element);
+        });
     } else {
-        console.warn("Scroll animation: '.mid-banner' element not found on this page.");
+        console.warn("Scroll animation: No target elements found on this page.");
     }
 
 });
