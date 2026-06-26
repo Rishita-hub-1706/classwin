@@ -79,36 +79,94 @@
     margin: 0;
 }
 
-/* Outer container to manage page margins and alignment constraints */
+
+/* The outer master container shifts into a row engine to lock elements side-by-side */
 .project-overview-section {
-    width: 100%;
-    padding: 60px 0;             /* Clearance vertical spacing below the hero banner */
+    width: 90%;
+    max-width: 1400px;
+    margin: 60px auto;           /* Centers the entire master section on the page */
     display: flex;
-    justify-content: flex-start; /* Ensures the inner box strictly floats to the left */
+    flex-direction: row;         /* Forces paragraph and cards onto the same horizontal line */
+    align-items: stretch;        /* CRITICAL: Stretches the cards grid to match the exact height of the paragraph */
+    justify-content: space-between;
+    gap: 5%;                     /* Creates a clean breathing space between the text block and the grid */
     box-sizing: border-box;
 }
 
-/* Inner box that controls the text width boundaries */
+/* Left-Side Column Constraints */
 .overview-content {
-    width: 90%;
-    max-width: 650px;            /* RESTRICTION: Stops the text from taking up the entire right side */
-    margin-left: 5%;             /* Generates clean spacing from the left screen wall edge */
-    text-align: left;            /* Forces clean left-aligned typography edge alignment */
+    width: 40%;                  /* Controls paragraph row width so it leaves space for the cards */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .overview-content h2 {
     font-family: 'Saira', sans-serif;
     font-size: 2.2rem;
     font-weight: 700;
-    color: rgb(2, 2, 62);              /* Premium cream headline highlight color */
-    margin: 0 0 20px 0;          /* Space gap beneath the title heading line */
+    color: rgb(2, 2, 62);
+    margin: 0 0 20px 0;
     letter-spacing: 0.5px;
 }
 
 .overview-content p {
     font-family: 'Saira', sans-serif;
     font-size: 1.1rem;
-    line-height: 1.7;            /* Elegant line spacing for clean editorial readability */
-    color: #31568a;              
+    line-height: 1.7;
+    color: #31568a;
+    margin: 0;
+}
+
+/* Right-Side Column: 2x2 Grid Layout Wrapper */
+.overview-cards-grid {
+    width: 55%;                  /* Stretches across the remaining layout space on the right */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Generates exactly 2 side-by-side column tracks */
+    gap: 24px;                   /* Clean, distinct padding gutters between the cards */
+}
+
+/* Individual Mini Card Styles */
+.mini-feature-card {
+    background-color: #02122F;
+    border: 1px solid rgba(139, 163, 197, 0.12);
+    border-radius: 20px;
+    padding: 24px;
+    
+    display: flex;
+    flex-direction: row;         /* Anchors icon on the left, stacks text cleanly on the right */
+    align-items: flex-start;     /* Keeps icons anchored to the top left of the card */
+    gap: 16px;                   /* Horizontal space between the PNG image icon and the text strings */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Constrains the PNG Icon size on the left */
+.mini-card-icon img {
+    width: 45px;                 /* Sized slightly smaller than the 3x3 grid icons to look balanced */
+    height: 45px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;              /* Stops the flexbox container from squeezing the icon shape */
+}
+
+/* Text Content Wrapper on the right side of the card */
+.mini-card-body {
+    text-align: left;
+}
+
+.mini-card-body h3 {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #F0ECDD;
+    margin: 0 0 8px 0;           /* Clean cushion space underneath the item heading */
+}
+
+.mini-card-body p {
+    font-family: 'Saira', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #8BA3C5;
     margin: 0;
 }
