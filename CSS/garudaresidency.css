@@ -78,3 +78,37 @@
     color: #8BA3C5;
     margin: 0;
 }
+
+/* Outer container to manage page margins and alignment constraints */
+.project-overview-section {
+    width: 100%;
+    padding: 60px 0;             /* Clearance vertical spacing below the hero banner */
+    display: flex;
+    justify-content: flex-start; /* Ensures the inner box strictly floats to the left */
+    box-sizing: border-box;
+}
+
+/* Inner box that controls the text width boundaries */
+.overview-content {
+    width: 90%;
+    max-width: 650px;            /* RESTRICTION: Stops the text from taking up the entire right side */
+    margin-left: 5%;             /* Generates clean spacing from the left screen wall edge */
+    text-align: left;            /* Forces clean left-aligned typography edge alignment */
+}
+
+.overview-content h2 {
+    font-family: 'Saira', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: rgb(2, 2, 62);              /* Premium cream headline highlight color */
+    margin: 0 0 20px 0;          /* Space gap beneath the title heading line */
+    letter-spacing: 0.5px;
+}
+
+.overview-content p {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;            /* Elegant line spacing for clean editorial readability */
+    color: #31568a;              
+    margin: 0;
+}
