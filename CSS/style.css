@@ -1,3 +1,37 @@
+/* ==========================================================================
+   GLOBAL EXACT RIPPLE ENGINE (Color-Matched to download (2).jpg)
+   ========================================================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    
+    /* Keeps the ripple background anchored perfectly while content scrolls past */
+    background-attachment: fixed; 
+    
+    /* Layered Radial Engine using exact image sample colors */
+    background-image: 
+        /* 1. The striking warm peach/gold iridescence ring line */
+        radial-gradient(circle 380px at center, rgba(243, 215, 184, 0.45) 0%, rgba(243, 215, 184, 0) 65%),
+        
+        /* 2. Soft pastel mint/teal sheen on the outer left ring edge */
+        radial-gradient(circle 550px at center, rgba(206, 230, 225, 0.5) 20%, rgba(206, 230, 225, 0) 70%),
+        
+        /* 3. Luminous lavender/periwinkle blue ambient body glow */
+        radial-gradient(circle 750px at center, rgba(199, 211, 234, 0.5) 40%, rgba(199, 211, 234, 0) 80%),
+        
+        /* 4. Large outer atmospheric soft gray-blue ripple boundary */
+        radial-gradient(circle 1000px at center, rgba(181, 196, 210, 0.25) 0%, rgba(181, 196, 210, 0) 75%),
+        
+        /* Master Base Layer: The ultra-smooth pearlescent silver-white canvas background */
+        linear-gradient(135deg, #e4e9ed 0%, #edf1f4 50%, #e9edf0 100%);
+        
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
 .navbar {
     position: absolute;
     top: 20px;

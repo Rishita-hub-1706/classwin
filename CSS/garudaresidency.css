@@ -4,7 +4,7 @@
 .project-page-content {
     margin-top: 0 !important;   /* Let the hero card slide smoothly right up to the top screen edge */
     padding: 0 !important;      /* Removes constraints to allow full structural layout breathing room */
-    background-color: #f9fafb;  /* Matches your global dark premium background theme */
+    background-color: transparent;  /* Matches your global dark premium background theme */
     box-sizing: border-box;
 }
 
