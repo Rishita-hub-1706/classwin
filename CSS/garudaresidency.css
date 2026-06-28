@@ -281,3 +281,167 @@
     color: #F0ECDD;                  /* FIX: Arrow lights up cleanly instead of turning dark/invisible */
     transform: translateY(-4px) scale(1.08); /* Sophisticated lift up + tiny grow effect */
 }
+
+
+
+
+
+
+.amenities-section {
+    
+    width: 90%;
+    max-width: 1400px;           
+    margin: 100px auto;          
+    padding: 80px 5%;
+    border-radius: 40px;         
+    
+    
+    background: linear-gradient(135deg, #eef3f9 0%, #dbe6f5 40%, #f7f5ee 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    
+    
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 
+        0 30px 70px rgba(2, 18, 47, 0.15),   
+        0 10px 20px rgba(139, 163, 197, 0.1);  
+}
+
+
+.amenities-section::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(139, 163, 197, 0.2) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: -1;                 
+    pointer-events: none;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header h2 {
+    font-family: 'Saira', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #23354D;             
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 35px;
+    width: 100%;
+    max-width: 1400px;
+    position: relative;
+    z-index: 2;
+}
+
+/* 3D Core Card Container */
+.flip-card {
+    background-color: transparent;
+    height: 260px;               
+    perspective: 1200px;         
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+    border-radius: 28px;         
+    padding: 35px 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    
+    /* Hyper-bright white glass effect */
+    background: rgba(255, 255, 255, 0.45); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 15px 35px rgba(139, 163, 197, 0.15); 
+}
+
+/* --- FRONT FACE --- */
+.flip-card-front {
+    color: #23354D;
+}
+
+
+.amenity-icon {
+    width: 65px;                  
+    height: 65px;                 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(139, 163, 197, 0.1);
+}
+
+.amenity-icon img {
+    width: 32px; 
+    height: 32px;
+    object-fit: contain;          
+    display: block;
+}
+
+.flip-card-front h3 {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
+    color: #02122F;              
+}
+
+/* --- BACK FACE --- */
+.flip-card-back {
+    
+    background: rgba(240, 236, 221, 0.6); 
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transform: rotateY(180deg);  
+}
+
+.flip-card-back p {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+    color: #495B7D;             
+    text-align: center;
+    font-weight: 500;
+}
