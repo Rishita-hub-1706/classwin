@@ -1,0 +1,447 @@
+
+
+/* Overriding the generic page padding so our hero card can stretch wide */
+.project-page-content {
+    margin-top: 0 !important;   /* Let the hero card slide smoothly right up to the top screen edge */
+    padding: 0 !important;      /* Removes constraints to allow full structural layout breathing room */
+    background-color: transparent;  /* Matches your global dark premium background theme */
+    box-sizing: border-box;
+}
+
+/* Core Structural Container for the Card */
+.project-hero-card {
+    position: relative;
+    width: 90%;                 /* Matches the general width bounds of your website sections */
+    max-width: 1400px;
+    height: 65vh;               /* Captures exactly 65% of the browser screen height  */
+    margin: 140px auto 60px auto; /* 140px Top spacing pushes it out from underneath the floating navbar */
+    border-radius: 30px;        
+    overflow: hidden;           
+    box-shadow: 0 20px 50px rgba(232, 222, 222, 0.4);
+}
+
+/* Full Bleed Image Constraints */
+.project-hero-card .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* Prevents compression lines, crops image gracefully across viewports */
+    display: block;
+}
+
+/* Elegant Dark Gradient Cover Wrapper */
+.project-hero-card .hero-overlay {
+    position: absolute;
+    inset: 0;                   /* Stretches cover entirely over the image card square */
+    /* Deeper dark gradient at bottom for text readability, blending to clear at the top navbar region */
+    background: linear-gradient(to top, 
+                rgba(2, 18, 47, 0.95) 0%, 
+                rgba(2, 18, 47, 0.4) 60%, 
+                transparent 100%);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;  /* Locks content text cluster to the lower third of the image card */
+    padding: 60px 80px;         /* Expands inner structural spacing alignment margins */
+    box-sizing: border-box;
+}
+
+/* Typography Cluster Layout and Styling */
+.hero-text-cluster {
+    max-width: 800px;           /* Stops text strings from trailing too long across ultra-wide monitors */
+    text-align: left;
+}
+
+.hero-text-cluster .project-tag {
+    font-family: 'Saira', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #8BA3C5;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.hero-text-cluster h1 {
+    font-family: 'Saira', sans-serif;
+    font-size: 3.5rem;          /* Distinct, commanding headline presence */
+    font-weight: 700;
+    color: #F0ECDD;             /* Golden-cream shade matching your theme */
+    margin: 0 0 15px 0;
+    line-height: 1.1;
+}
+
+.hero-text-cluster p {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #8BA3C5;
+    margin: 0;
+}
+
+
+/* The outer master container shifts into a row engine to lock elements side-by-side */
+.project-overview-section {
+    width: 90%;
+    max-width: 1400px;
+    margin: 60px auto;           /* Centers the entire master section on the page */
+    display: flex;
+    flex-direction: row;         /* Forces paragraph and cards onto the same horizontal line */
+    align-items: stretch;        /* CRITICAL: Stretches the cards grid to match the exact height of the paragraph */
+    justify-content: space-between;
+    gap: 5%;                     /* Creates a clean breathing space between the text block and the grid */
+    box-sizing: border-box;
+}
+
+/* Left-Side Column Constraints */
+.overview-content {
+    width: 40%;                  /* Controls paragraph row width so it leaves space for the cards */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.overview-content h2 {
+    font-family: 'Saira', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: rgb(2, 2, 62);
+    margin: 0 0 20px 0;
+    letter-spacing: 0.5px;
+}
+
+.overview-content p {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #31568a;
+    margin: 0;
+}
+
+/* Right-Side Column: 2x2 Grid Layout Wrapper */
+.overview-cards-grid {
+    width: 55%;                  /* Stretches across the remaining layout space on the right */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Generates exactly 2 side-by-side column tracks */
+    gap: 24px;                   /* Clean, distinct padding gutters between the cards */
+}
+
+/* Individual Mini Card Styles */
+.mini-feature-card {
+    background-color: #02122F;
+    border: 1px solid rgba(139, 163, 197, 0.12);
+    border-radius: 20px;
+    padding: 24px;
+    
+    display: flex;
+    flex-direction: row;         /* Anchors icon on the left, stacks text cleanly on the right */
+    align-items: flex-start;     /* Keeps icons anchored to the top left of the card */
+    gap: 16px;                   /* Horizontal space between the PNG image icon and the text strings */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Constrains the PNG Icon size on the left */
+.mini-card-icon img {
+    width: 45px;                 /* Sized slightly smaller than the 3x3 grid icons to look balanced */
+    height: 45px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;              /* Stops the flexbox container from squeezing the icon shape */
+}
+
+/* Text Content Wrapper on the right side of the card */
+.mini-card-body {
+    text-align: left;
+}
+
+.mini-card-body h3 {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #F0ECDD;
+    margin: 0 0 8px 0;           /* Clean cushion space underneath the item heading */
+}
+
+.mini-card-body p {
+    font-family: 'Saira', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #8BA3C5;
+    margin: 0;
+}
+
+
+
+
+.gallery-master-section {
+    width: 90%;
+    max-width: 1400px;
+    margin: 120px auto;          
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;     /* Aligns text top edge cleanly with image top edge */
+    justify-content: space-between;
+    gap: 5%;
+    box-sizing: border-box;
+}
+
+/* Left Side Column Configuration*/
+.gallery-left-content {
+    width: 35%;
+}
+
+.gallery-text h2 {
+    font-family: 'Saira', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: rgb(2, 2, 62);
+    margin: 0 0 20px 0;
+}
+
+.gallery-text p {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #31568a;
+    margin: 0;
+}
+
+/* Right Side Column: Image Viewport Wrapper */
+.gallery-right-viewport {
+    width: 60%;
+    display: flex;
+    flex-direction: column;      /* Stacks the image track and the controls vertically */
+    gap: 25px;                   /* Creates clean breathing room between images and buttons */
+}
+
+/* Sliding Container Strip */
+.gallery-track {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    scroll-behavior: smooth;     
+    overflow-x: auto;            
+    scrollbar-width: none;       
+    width: 100%;
+}
+
+.gallery-track::-webkit-scrollbar {
+    display: none;               
+}
+
+/* Gallery Individual Sized Cards */
+.gallery-card {
+    flex-shrink: 0;              
+    width: 320px;                
+    height: 420px;               
+    border-radius: 24px;         
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           
+    display: block;
+}
+
+/* Round Slider Control Buttons Alignment Rules */
+.gallery-controls {
+    display: flex;
+    gap: 16px;                   
+    justify-content: flex-end;   /* CRITICAL: Pushes the button pair completely to the right corner */
+    padding-right: 10px;         /* Optional visual alignment cushion */
+}
+
+.ctrl-btn {
+    width: 55px;                 
+    height: 55px;
+    border-radius: 50%;          
+    border: 1px solid #31568a;
+    background-color: rgb(2, 2, 62);
+    color: #31568a;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* IMPROVED: Added a high-end cubic-bezier curve for a premium, snappy feel */
+    transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Adds a subtle bouncy snap */
+}
+
+.ctrl-btn:hover {
+    background-color: rgb(2, 2, 62); /* Stays the same as requested */
+    border-color: #F0ECDD;           /* FIX: Glows beautifully to match your site's cream color on hover */
+    color: #F0ECDD;                  /* FIX: Arrow lights up cleanly instead of turning dark/invisible */
+    transform: translateY(-4px) scale(1.08); /* Sophisticated lift up + tiny grow effect */
+}
+
+
+
+
+
+
+.amenities-section {
+    
+    width: 90%;
+    max-width: 1400px;           
+    margin: 100px auto;          
+    padding: 80px 5%;
+    border-radius: 40px;         
+    
+    
+    background: linear-gradient(135deg, #eef3f9 0%, #dbe6f5 40%, #f7f5ee 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    
+    
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 
+        0 30px 70px rgba(2, 18, 47, 0.15),   
+        0 10px 20px rgba(139, 163, 197, 0.1);  
+}
+
+
+.amenities-section::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(139, 163, 197, 0.2) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: -1;                 
+    pointer-events: none;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header h2 {
+    font-family: 'Saira', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #23354D;             
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 35px;
+    width: 100%;
+    max-width: 1400px;
+    position: relative;
+    z-index: 2;
+}
+
+/* 3D Core Card Container */
+.flip-card {
+    background-color: transparent;
+    height: 260px;               
+    perspective: 1200px;         
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+    border-radius: 28px;         
+    padding: 35px 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    
+    /* Hyper-bright white glass effect */
+    background: rgba(255, 255, 255, 0.45); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 15px 35px rgba(139, 163, 197, 0.15); 
+}
+
+/* --- FRONT FACE --- */
+.flip-card-front {
+    color: #23354D;
+}
+
+
+.amenity-icon {
+    width: 65px;                  
+    height: 65px;                 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(139, 163, 197, 0.1);
+}
+
+.amenity-icon img {
+    width: 32px; 
+    height: 32px;
+    object-fit: contain;          
+    display: block;
+}
+
+.flip-card-front h3 {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
+    color: #02122F;              
+}
+
+/* --- BACK FACE --- */
+.flip-card-back {
+    
+    background: rgba(240, 236, 221, 0.6); 
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transform: rotateY(180deg);  
+}
+
+.flip-card-back p {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+    color: #495B7D;             
+    text-align: center;
+    font-weight: 500;
+}
