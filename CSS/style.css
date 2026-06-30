@@ -1,6 +1,4 @@
-/* ==========================================================================
-   GLOBAL EXACT RIPPLE ENGINE (Color-Matched to download (2).jpg)
-   ========================================================================== */
+
 
 body {
     margin: 0;
@@ -8,24 +6,24 @@ body {
     min-height: 100vh;
     width: 100%;
     
-    /* Keeps the ripple background anchored perfectly while content scrolls past */
+    
     background-attachment: fixed; 
     
-    /* Layered Radial Engine using exact image sample colors */
+    
     background-image: 
-        /* 1. The striking warm peach/gold iridescence ring line */
+        
         radial-gradient(circle 380px at center, rgba(243, 215, 184, 0.45) 0%, rgba(243, 215, 184, 0) 65%),
         
-        /* 2. Soft pastel mint/teal sheen on the outer left ring edge */
+        
         radial-gradient(circle 550px at center, rgba(206, 230, 225, 0.5) 20%, rgba(206, 230, 225, 0) 70%),
         
-        /* 3. Luminous lavender/periwinkle blue ambient body glow */
+        
         radial-gradient(circle 750px at center, rgba(199, 211, 234, 0.5) 40%, rgba(199, 211, 234, 0) 80%),
         
-        /* 4. Large outer atmospheric soft gray-blue ripple boundary */
+        
         radial-gradient(circle 1000px at center, rgba(181, 196, 210, 0.25) 0%, rgba(181, 196, 210, 0) 75%),
         
-        /* Master Base Layer: The ultra-smooth pearlescent silver-white canvas background */
+        
         linear-gradient(135deg, #e4e9ed 0%, #edf1f4 50%, #e9edf0 100%);
         
     background-size: 100% 100%;
@@ -222,13 +220,30 @@ body {
 
 
 
+
+
+.footer {
+    width: 90%;
+    max-width: 1400px;
+    margin: 80px auto 40px auto; /* Floats off the bottom margin bounds cleanly */
+    box-sizing: border-box;
+}
+
+/* Glass Main Panel Deck */
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 20px 30px;
-    background-color: #02122F;
-    color: #8BA3C5;
+    padding: 60px 40px;
+    
+    /* Elegant, semi-transparent white frost glass */
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 32px 32px 0 0; /* Rounds top edges, aligns flat with bottom copyright panel */
+    
+    box-shadow: 0 20px 50px rgba(139, 163, 197, 0.15);
     font-family: 'Saira', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -236,7 +251,152 @@ body {
 
 .footer-heading {
     flex: 1;
-    margin: 0 15px;
+    margin: 0 20px;
+}
+
+/* Typographic Title Styling using rich Storm/Oxford colors */
+.footer-heading h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #02122F;              /* Clear Oxford Blue text */
+    margin: 0 0 25px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+/* Soft accent lines beneath titles */
+.footer-heading h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 35px;
+    height: 3px;
+    background-color: #495B7D;   /* Steel Accent line */
+    border-radius: 2px;
+}
+
+.footer-1 p {
+    line-height: 1.7;
+    color: #495B7D;              /* Highly legible Steel grey-blue text */
+    margin: 0;
+    font-size: 0.98rem;
+}
+
+/* Clean List Resets */
+.footer-links, 
+.footer-contact-list, 
+.footer-social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;                   /* Professional line-height breathing room spacing */
+}
+
+/* Shaping Links & Animation (Quick Links Column) */
+.footer-links li a {
+    text-decoration: none;
+    color: #495B7D;
+    font-weight: 500;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+/* Modern Sliding Underline Micro-interaction */
+.footer-links li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #02122F;
+    transform-origin: bottom right;
+    transition: transform 0.35s ease-out;
+}
+
+.footer-links li a:hover {
+    color: #02122F;
+    transform: translateX(4px); /* Subtle shift rightward when hovered */
+}
+
+.footer-links li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Contact Details Formatting */
+.footer-contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.5;
+    color: #495B7D;
+}
+
+.contact-icon {
+    font-size: 1.1rem;
+    filter: grayscale(20%);      /* Blends emoji vibrancy perfectly with professional palette */
+}
+
+.contact-text strong {
+    color: #23354D;              /* Darker tone for emphasis keys */
+}
+
+/* Social Icon Column Layout */
+.footer-social-links li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #495B7D;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-links li a:hover {
+    color: #02122F;
+    transform: translateY(-2px); /* Lifts icon up slightly on hover */
+}
+
+.social-svg-icon {
+    width: 20px;
+    height: 20px;
+    fill: none;                  /* Keeps the center clean/transparent */
+    stroke: #495B7D;             /* Matches your initial Steel grey-blue text color */
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s ease; /* Makes the SVG lines fade color smooth alongside the text */
+}
+
+.social-icon {
+    font-size: 1.1rem;
+}
+
+/* Bottom Copyright Bar Panel */
+.footer-bottom-bar {
+    width: 100%;
+    text-align: center;
+    padding: 25px 20px;
+    background: rgba(2, 18, 47, 0.04); /* Ultra-clean, subtle border-deck anchor block */
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    box-sizing: border-box;
+    border-radius: 0 0 32px 32px;
+}
+
+.footer-bottom-bar p {
+    margin: 0;
+    font-family: 'Saira', sans-serif;
+    font-size: 0.9rem;
+    color: #495B7D;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 
