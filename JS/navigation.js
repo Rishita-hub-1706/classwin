@@ -1,26 +1,90 @@
+/* ==========================================================================
+   INTEGRATED AUTOMATIC PAGE HIGHLIGHTER & FLUID TRACKING ENGINE
+   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
-    //to highlight the current page in the navigation bar
-    const currentPath = window.location.pathname.split("/").pop();
     
-    //to select all the navigation links and loop through them to find a match with the current path
+    // --- STEP 1: AUTOMATIC CURRENT PAGE DETECTION & HIGHLIGHTING ---
+    const currentPath = window.location.pathname.split("/").pop();
     const navLinks = document.querySelectorAll(".nav-links a");
 
-    navLinks.forEach(link => {
-        // Clear out any old active classes just in case
-        link.classList.remove("active");
-        
-        //to get the href attribute of the link
-        const linkHref = link.getAttribute("href");
+    // Clear any hardcoded active states first
+    document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("active"));
 
-        //to check if the link's href matches the current path
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute("href");
+        
+        // Find the matching link
         if (linkHref === currentPath) {
-            link.classList.add("active");
+            // Find the closest parent <li> (the .nav-item) and mark it active
+            const parentItem = link.closest(".nav-item");
+            if (parentItem) {
+                parentItem.classList.add("active");
+                
+                // If it's a dropdown child, also keep the parent dropdown item active
+                const parentDropdown = parentItem.closest(".has-dropdown");
+                if (parentDropdown) {
+                    parentDropdown.classList.add("active");
+                }
+            }
         }
     });
     
-    //if the current path is empty or index.html, highlight the home link
-    if (currentPath === "" || currentPath === "index.html") {
+    // Fallback: If path is blank or index.html, highlight the Home item wrapper
+    if (currentPath === "" || currentPath === "index.html" || currentPath === "home.html") {
         const homeLink = document.querySelector('.nav-links a[href="home.html"]');
-        if (homeLink) homeLink.classList.add("active");
+        if (homeLink) {
+            const homeItem = homeLink.closest(".nav-item");
+            if (homeItem) homeItem.classList.add("active");
+        }
     }
+
+    // --- STEP 2: DYNAMIC GLASS PILL INTERACTION MECHANICS ---
+    const navContainer = document.querySelector(".nav-links-container");
+    const navItems = document.querySelectorAll(".nav-item");
+    const glassPill = document.querySelector(".sliding-glass-pill");
+
+    function positionPill(element) {
+        if (!element || !navContainer || !glassPill) return;
+        
+        const containerRect = navContainer.getBoundingClientRect();
+        const itemRect = element.getBoundingClientRect();
+
+        const calculatedLeft = itemRect.left - containerRect.left;
+        const calculatedWidth = itemRect.width;
+
+        // Apply hardware-accelerated tracking placement
+        glassPill.style.opacity = "1";
+        glassPill.style.left = `${calculatedLeft}px`;
+        glassPill.style.width = `${calculatedWidth}px`;
+    }
+
+    // Instantly snap the pill to whichever page was flagged active above
+    const activeItem = document.querySelector(".nav-item.active");
+    if (activeItem) {
+        // Subtle timeout ensures browser handles bounding box rendering first
+        setTimeout(() => positionPill(activeItem), 50);
+    }
+
+    // Slide to the element the mouse is hovering over
+    navItems.forEach(item => {
+        item.addEventListener("mouseenter", () => positionPill(item));
+    });
+
+    // Smoothly glide back to the current page's link when mouse leaves the navbar
+    if (navContainer) {
+        navContainer.addEventListener("mouseleave", () => {
+            const currentActive = document.querySelector(".nav-item.active");
+            if (currentActive) {
+                positionPill(currentActive);
+            } else {
+                glassPill.style.opacity = "0"; // Fade out gracefully if on an unlinked page
+            }
+        });
+    }
+    
+    // Readjust pill width/position seamlessly if user resizes browser window mid-session
+    window.addEventListener("resize", () => {
+        const currentActive = document.querySelector(".nav-item.active");
+        if (currentActive) positionPill(currentActive);
+    });
 });

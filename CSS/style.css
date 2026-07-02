@@ -30,192 +30,173 @@ body {
     background-repeat: no-repeat;
 }
 
-.navbar {
+
+
+.main-header {
+    width: 100%;
     position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 94%;
-    max-width: 1200px;
-    margin-top: 20px;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    padding: 20px 0; 
+    display: flex;
+    justify-content: center;
+    pointer-events: none; 
+}
+
+
+.navbar {
+    pointer-events: auto;  
+    width: 92%;              
+    max-width: 1440px;
+    height: 80px;             
+    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 50px;
-    
-    
-    background-color: rgba(2, 18, 47, 0.9);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    
-    color: #8BA3C5;
-    font-family: 'Saira', sans-serif;
-    font-size: 22px; 
-    font-weight: 600;
-    border-radius: 100px;
+    box-sizing: border-box;
     
    
-    z-index: 1000; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(2, 18, 47, 0.08);
 }
-/* --- ENHANCED DROPDOWN LOGIC --- */
 
-.nav-links li.has-dropdown {
+
+.logo {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #02122F;
+    letter-spacing: 1px;
+}
+
+
+.nav-links-container {
+    position: relative;       
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;                
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 2;               
+}
+
+
+.nav-item {
     position: relative;
 }
 
-.nav-links .arrow {
+.nav-item a {
+    display: block;
+    padding: 12px 24px;       
+    font-family: 'Saira', sans-serif;
+    font-size: 1.05rem;       
+    font-weight: 600;
+    color: #495B7D;          
+    text-decoration: none;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+
+.arrow {
+    font-size: 0.8rem;
+    margin-left: 4px;
     display: inline-block;
-    font-size: 14px;
-    margin-left: 8px;
-    transition: transform 0.3s ease, color 0.3s ease;
-    vertical-align: middle;
+    transition: transform 0.3s ease;
 }
 
-.has-dropdown:hover .arrow {
-    transform: rotate(180deg);
-    color: #F0ECDD;
+
+.sliding-glass-pill {
+    position: absolute;
+    height: 46px;             
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(139, 163, 197, 0.15);
+    
+    
+    pointer-events: none;     
+    z-index: 1;
+    opacity: 0;               
+    transition: all 0.38s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Enlarged & More Presentable Dropdown Container */
+
+.nav-item:hover > a,
+.nav-item.active > a {
+    color: #02122F;          
+}
+
+.nav-item:hover .arrow {
+    transform: rotate(180deg); 
+}
+
+
 .dropdown-menu {
     position: absolute;
-    top: 110%; /* Kept safe to prevent layout gaps */
+    top: calc(100% + 15px);   
     left: 50%;
-    transform: translateX(-50%) translateY(15px);
-    background-color: #02122F;
-    
-    /* MODIFIED: Subtle premium border highlight */
-    border: 1px solid rgba(139, 163, 197, 0.25);
-    border-radius: 20px; /* More rounded modern corners */
-    
-    /* MODIFIED: Increased sizing for prominence */
-    padding: 15px 10px;
-    min-width: 280px; /* Made wider to look commanding */
-    
+    transform: translateX(-50%) translateY(10px);
+    width: 230px;
+    padding: 12px;
     list-style: none;
     margin: 0;
-    
-    /* MODIFIED: Deeper drop shadow for distinct layering */
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
-    
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    z-index: 2000;
+    visibility: hidden;
+    
+    
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(2, 18, 47, 0.12);
+    
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 100;
 }
 
-/* Invisible bridge helper to completely rule out dead-zones */
-.dropdown-menu::before {
-    content: '';
-    position: absolute;
-    top: -25px;
-    left: 0;
-    width: 100%;
-    height: 25px;
-    background: transparent;
-}
-
-/* Enlarged Dropdown Menu Links */
-.dropdown-menu a {
-    display: block;
-    /* MODIFIED: Expanded inner padding for a touch-friendly target area */
-    padding: 14px 28px;
-    font-size: 20px; /* Increased from 18px for clear readability */
-    white-space: nowrap;
-    text-align: left;
-    position: relative; /* Set context for the item underline */
-    transition: color 0.3s ease;
-}
-
-
-.dropdown-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 5px; /* Sits perfectly just under the text string */
-    left: 28px;  
-    width: calc(100% - 56px); /* Scales dynamic width dynamically minus the side paddings */
-    height: 2.5px;
-    background-color: #F0ECDD;
-    border-radius: 2px;
-    transform: scaleX(0); /* Hidden uniformly */
-    transform-origin: right;
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Dropdown Hover State Interactions */
-.dropdown-menu a:hover {
-    background-color: rgba(240, 236, 221, 0.05); /* Soft background block fade */
-    color: #F0ECDD;
-}
-
-/* Active trigger expanding the custom item underline */
-.dropdown-menu a:hover::after,
-.dropdown-menu a.active::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-/* Active Hover Wrapper Reveal Trigger */
 .has-dropdown:hover .dropdown-menu {
     opacity: 1;
-    pointer-events: auto;
+    visibility: visible;
     transform: translateX(-50%) translateY(0);
 }
-.nav-links {
-    justify-content: center;
-    display: flex;
-    gap: 40px;  
-    list-style: none;
-    margin: 0;
-    padding: 0;
+
+.dropdown-menu li a {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: #495B7D;
+    border-radius: 10px;
+    transition: background 0.25s ease, color 0.25s ease;
 }
 
-.nav-links li {
-    position: relative; /* Anchor point for the underline */
+.dropdown-menu li a:hover {
+    background: rgba(2, 18, 47, 0.05);
+    color: #02122F;
+    padding-left: 20px;       
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #8BA3C5;
-    position: relative;
-    padding: 6px 0;
-    transition: color 0.3s ease; /* Smooth color swap */
+.nav-spacer {
+    width: 120px;             
+    display: inline-block;
 }
 
-/* MODIFIED: Custom Hardware-Accelerated Underline */
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #F0ECDD;
-    border-radius: 2px;
-    transform: scaleX(0); /* Hidden by default */
-    transform-origin: right;
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* MODIFIED: Merged active and hover triggers to use the smooth animation */
-.nav-links a:hover,
-.nav-links a.active {
-    color: #F0ECDD;
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    transform: scaleX(1); /* Smoothly grows from center-left */
-    transform-origin: left;
-}
-
-.navbar .logo {
-    font-size: 30px;
-    font-weight: 700;
-    color: #F0ECDD;
-    letter-spacing: 0.5px;
+@media (max-width: 1024px) {
+    .nav-spacer { display: none; }
 }
 
 
@@ -225,7 +206,7 @@ body {
 .footer {
     width: 90%;
     max-width: 1400px;
-    margin: 80px auto 40px auto; /* Floats off the bottom margin bounds cleanly */
+    margin: 80px auto 40px auto; 
     box-sizing: border-box;
 }
 
@@ -236,12 +217,12 @@ body {
     align-items: flex-start;
     padding: 60px 40px;
     
-    /* Elegant, semi-transparent white frost glass */
+   
     background: rgba(255, 255, 255, 0.45);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 32px 32px 0 0; /* Rounds top edges, aligns flat with bottom copyright panel */
+    border-radius: 32px 32px 0 0; 
     
     box-shadow: 0 20px 50px rgba(139, 163, 197, 0.15);
     font-family: 'Saira', sans-serif;
@@ -254,18 +235,17 @@ body {
     margin: 0 20px;
 }
 
-/* Typographic Title Styling using rich Storm/Oxford colors */
+
 .footer-heading h2 {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #02122F;              /* Clear Oxford Blue text */
+    color: #02122F;             
     margin: 0 0 25px 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     position: relative;
 }
 
-/* Soft accent lines beneath titles */
 .footer-heading h2::after {
     content: '';
     position: absolute;
@@ -273,18 +253,18 @@ body {
     left: 0;
     width: 35px;
     height: 3px;
-    background-color: #495B7D;   /* Steel Accent line */
+    background-color: #495B7D;   
     border-radius: 2px;
 }
 
 .footer-1 p {
     line-height: 1.7;
-    color: #495B7D;              /* Highly legible Steel grey-blue text */
+    color: #495B7D;              
     margin: 0;
     font-size: 0.98rem;
 }
 
-/* Clean List Resets */
+
 .footer-links, 
 .footer-contact-list, 
 .footer-social-links {
@@ -293,10 +273,10 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 14px;                   /* Professional line-height breathing room spacing */
+    gap: 14px;                   
 }
 
-/* Shaping Links & Animation (Quick Links Column) */
+
 .footer-links li a {
     text-decoration: none;
     color: #495B7D;
@@ -306,7 +286,7 @@ body {
     position: relative;
 }
 
-/* Modern Sliding Underline Micro-interaction */
+
 .footer-links li a::after {
     content: '';
     position: absolute;
@@ -322,7 +302,7 @@ body {
 
 .footer-links li a:hover {
     color: #02122F;
-    transform: translateX(4px); /* Subtle shift rightward when hovered */
+    transform: translateX(4px); 
 }
 
 .footer-links li a:hover::after {
@@ -330,7 +310,7 @@ body {
     transform-origin: bottom left;
 }
 
-/* Contact Details Formatting */
+
 .footer-contact-list li {
     display: flex;
     align-items: flex-start;
@@ -341,14 +321,14 @@ body {
 
 .contact-icon {
     font-size: 1.1rem;
-    filter: grayscale(20%);      /* Blends emoji vibrancy perfectly with professional palette */
+    filter: grayscale(20%);      
 }
 
 .contact-text strong {
-    color: #23354D;              /* Darker tone for emphasis keys */
+    color: #23354D;              
 }
 
-/* Social Icon Column Layout */
+
 .footer-social-links li a {
     display: flex;
     align-items: center;
@@ -367,12 +347,12 @@ body {
 .social-svg-icon {
     width: 20px;
     height: 20px;
-    fill: none;                  /* Keeps the center clean/transparent */
-    stroke: #495B7D;             /* Matches your initial Steel grey-blue text color */
+    fill: none;                  
+    stroke: #495B7D;             
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transition: stroke 0.3s ease; /* Makes the SVG lines fade color smooth alongside the text */
+    transition: stroke 0.3s ease; 
 }
 
 .social-icon {

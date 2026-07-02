@@ -101,6 +101,7 @@ body, html {
 
 
 .banner-section {
+    padding-top: 140px;
     display: flex !important;       
     flex-direction: row !important; /* Strictly forces side-by-side positioning */
     align-items: center !important; /* Centers elements vertically relative to each other */
