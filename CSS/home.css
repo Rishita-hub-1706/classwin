@@ -180,80 +180,147 @@ body, html {
     transform: translateX(0) !important; /* Smoothly snaps back into position row alignment */
 }
 
+
+
 .grid-section {
-    width: 100%;
-    margin: 120px 0;           
+    width: 90%;                  
+    max-width: 1400px;
+    margin: 100px auto;          
+    padding: 80px 5%;
+    border-radius: 40px;         
+    
     display: flex;
-    justify-content: center;   
-    align-items: center;
+    flex-direction: column; 
+    align-items: center;        
     box-sizing: border-box;
+    
+    
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 30px 70px rgba(2, 18, 47, 0.08);
 }
+
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;         
+    width: 100%;                 
+    position: relative;
+    z-index: 2;
+}
+
+.section-sub-heading {
+    font-family: 'Saira', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #495B7D;              
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.section-header h2 {
+    font-family: 'Saira', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #02122F;              
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(320px, 1fr)); 
-    gap: 40px;                 
-    width: 90%;                
-    max-width: 1400px;         
+    grid-template-columns: repeat(3, minmax(300px, 1fr)); 
+    gap: 35px;                 
+    width: 100%;                
 }
 
+
 .feature-card {
-    background-color: #02122F; 
+    
+    background-color: #03193F; 
     border: 1px solid rgba(139, 163, 197, 0.15);
-    border-radius: 25px;
-    padding: 50px 40px;        
-    text-align: center;        
+    border-radius: 28px;
+    padding: 50px 35px;        
+    box-sizing: border-box;
+    
     
     display: flex;
     flex-direction: column;    
-    align-items: center;       
+    align-items: center;     
+    text-align: center;        
     
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+    box-shadow: 0 15px 40px rgba(2, 18, 47, 0.25);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 box-shadow 0.4s ease, 
-                border-color 0.4s ease;
+                background-color 0.4s ease;
 }
+
 
 .feature-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(240, 236, 221, 0.4);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    background-color: #052356;  
+    box-shadow: 0 25px 55px rgba(2, 18, 47, 0.4);
+    border-color: rgba(243, 215, 184, 0.3); 
 }
 
+
 .card-icon {
-    margin-bottom: 25px;       
-    display: inline-flex;
+    width: 70px;
+    height: 70px;
+    display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 25px;       
+    background: rgba(255, 255, 255, 0.08); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.feature-card:hover .card-icon {
+    background: rgba(255, 255, 255, 0.15); 
 }
 
 .card-icon img {
-    width: 65px;               
-    height: 65px;              
+    width: 36px;               
+    height: 36px;              
     object-fit: contain;       
     display: block;
 }
 
+
 .card-title {
-    font-family: "Righteous", sans-serif;
-    font-size: 1.45rem;         /* Slightly optimized size for longer real-estate titles */
+    font-family: 'Saira', sans-serif;
+    font-size: 1.4rem;         
     line-height: 1.4;
-    font-weight: 400;
-    color: #F0ECDD;            
-    margin: 0 0 18px 0;        
+    font-weight: 700;
+    color: #FFFFFF;             
+    margin: 0 0 15px 0;        
 }
 
 .card-text {
-    font-family: "Poiret One", sans-serif;
-    letter-spacing: 0.5px;
-    font-weight: 700;
-    font-size: 1.05rem;
+    font-family: 'Saira', sans-serif;
+    font-weight: 400;
+    font-size: 0.98rem;
     line-height: 1.6;          
-    color: #8BA3C5;
-    margin: 0 0 10px 0;        
+    color: #A9BFDC;             
+    margin: 0;        
 }
 
 
+@media (max-width: 1024px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .grid-section { width: 95%; padding: 50px 20px; }
+    .cards-grid { grid-template-columns: 1fr; }
+}
+
 .footer {
-    margin-top: 0; /* Keeps footer flush relative to the page margin layouts */
+    margin-top: 0; 
 }
