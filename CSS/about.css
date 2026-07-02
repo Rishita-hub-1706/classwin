@@ -103,3 +103,159 @@
         width: 85%;
     }
 }
+
+.about-intro-section {
+    width: 100%;
+    padding: 100px 0;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 5;
+}
+
+.about-intro-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+}
+
+.collage-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.collage-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    height: 480px;
+}
+
+.collage-img {
+    position: absolute;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(2, 18, 47, 0.12);
+    background: #e4e9ed;
+}
+
+.collage-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.img-main {
+    width: 70%;
+    height: 340px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.img-sub {
+    width: 65%;
+    height: 280px;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    border: 8px solid #edf1f4;
+}
+
+.experience-badge {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    z-index: 4;
+    width: 160px;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    border-radius: 20px 20px 4px 20px;
+    background: #03193F;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(2, 18, 47, 0.25);
+    text-align: center;
+}
+
+.exp-number {
+    display: block;
+    font-family: 'Saira', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.exp-text {
+    display: block;
+    font-family: 'Saira', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #A9BFDC;
+    line-height: 1.4;
+}
+
+.about-text-column {
+    flex: 1;
+}
+
+.about-text-column .section-sub-heading {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #02122F;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.about-text-column h2 {
+    font-family: 'Saira', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #02122F;
+    line-height: 1.2;
+    margin: 0 0 25px 0;
+}
+
+.lead-text {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #23354D;
+    margin-bottom: 20px;
+}
+
+.about-text-column p {
+    font-family: 'Saira', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #495B7D;
+    margin: 0 0 15px 0;
+}
+
+@media (max-width: 992px) {
+    .about-intro-container {
+        flex-direction: column;
+        gap: 60px;
+    }
+    .collage-wrapper {
+        max-width: 480px;
+        height: 420px;
+    }
+    .img-main { height: 300px; }
+    .img-sub { height: 240px; }
+    .about-text-column {
+        text-align: center;
+    }
+}
