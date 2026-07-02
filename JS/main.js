@@ -34,3 +34,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const statsSection = document.querySelector(".stats-banner-section");
+    const counters = document.querySelectorAll(".stat-number");
+    
+    const countUp = (element) => {
+        const target = +element.getAttribute("data-target");
+        const duration = 2000; 
+        const frameRate = 1000 / 60; 
+        const totalFrames = Math.round(duration / frameRate);
+        let currentFrame = 0;
+
+        const animate = () => {
+            currentFrame++;
+            const progress = currentFrame / totalFrames;
+            const currentValue = Math.round(target * progress);
+
+            if (currentFrame < totalFrames) {
+                element.innerText = currentValue + "+";
+                requestAnimationFrame(animate);
+            } else {
+                element.innerText = target + "+";
+            }
+        };
+
+        requestAnimationFrame(animate);
+    };
+
+    const observerOptions = {
+        root: null,
+        threshold: 0.1
+    };
+
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                counters.forEach(counter => countUp(counter));
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
+});
