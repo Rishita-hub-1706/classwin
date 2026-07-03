@@ -101,3 +101,54 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("projectTrack");
+    const prevBtn = document.getElementById("prevSlideBtn");
+    const nextBtn = document.getElementById("nextSlideBtn");
+    
+    if (!track || !prevBtn || !nextBtn) return;
+
+    let currentIndex = 0;
+
+    const getItemsPerView = () => {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+    };
+
+    const updateSliderPosition = () => {
+        const cards = document.querySelectorAll(".project-card");
+        if (cards.length === 0) return;
+
+        const itemsPerView = getItemsPerView();
+        const maxIndex = cards.length - itemsPerView;
+
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        if (currentIndex < 0) currentIndex = 0;
+
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = 30; 
+        
+        const amountToMove = currentIndex * (cardWidth + gap);
+        track.style.transform = `translateX(-${amountToMove}px)`;
+    };
+
+    nextBtn.addEventListener("click", () => {
+        const cards = document.querySelectorAll(".project-card");
+        const itemsPerView = getItemsPerView();
+        if (currentIndex < cards.length - itemsPerView) {
+            currentIndex++;
+            updateSliderPosition();
+        }
+    });
+
+    prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSliderPosition();
+        }
+    });
+
+    window.addEventListener("resize", updateSliderPosition);
+});
