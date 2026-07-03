@@ -108,6 +108,9 @@ body {
     transition: color 0.3s ease;
     white-space: nowrap;
 }
+.dropdown-trigger {
+    cursor: default;
+}
 
 
 .arrow {
