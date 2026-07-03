@@ -80,3 +80,24 @@ document.addEventListener("DOMContentLoaded", () => {
         statsObserver.observe(statsSection);
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabPanes = document.querySelectorAll(".tab-pane");
+
+    tabButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const targetTab = button.getAttribute("data-tab");
+
+            tabButtons.forEach(btn => btn.classList.remove("active"));
+            tabPanes.forEach(pane => pane.classList.remove("active"));
+
+            button.classList.add("active");
+            
+            const activePane = document.getElementById(targetTab);
+            if (activePane) {
+                activePane.classList.add("active");
+            }
+        });
+    });
+});
