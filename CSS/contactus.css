@@ -354,3 +354,116 @@
         justify-content: center;
     }
 }
+.contact-info-section {
+    width: 100%;
+    background-color: #edf1f4;
+    padding: 80px 5%;
+    box-sizing: border-box;
+}
+
+.info-cards-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.info-card-item {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.info-icon-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.phone-bg {
+    background-color: rgba(3, 25, 63, 0.08);
+}
+
+.location-bg {
+    background-color: rgba(139, 163, 197, 0.15);
+}
+
+.email-bg {
+    background-color: rgba(3, 25, 63, 0.05);
+}
+
+.info-icon-circle img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.info-card-item h3 {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #02122F;
+    margin: 0 0 8px 0;
+}
+
+.info-subtitle {
+    font-family: 'Saira', sans-serif;
+    font-size: 0.95rem;
+    color: #495B7D;
+    margin: 0 0 15px 0;
+}
+
+.info-detail-link {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #03193F;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-detail-link:hover {
+    color: #02122F;
+}
+
+.info-detail-text {
+    font-family: 'Saira', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #02122F;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 280px;
+}
+
+.info-vertical-divider {
+    width: 1px;
+    background: rgba(2, 18, 47, 0.12);
+    align-self: center;
+    height: 100px;
+}
+
+@media (max-width: 992px) {
+    .info-cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .info-vertical-divider {
+        width: 60px;
+        height: 1px;
+        background: rgba(2, 18, 47, 0.12);
+    }
+}
