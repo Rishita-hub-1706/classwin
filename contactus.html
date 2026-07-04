@@ -47,10 +47,161 @@
         <h1 class="banner-title">Contact Us</h1>
     </div>
 </section>
+<section class="contact-form-section">
+    <div class="glass-form-card">
+        
+        <div class="form-header">
+            <span class="form-badge">Contact Us</span>
+            <h2>Get in Touch</h2>
+        </div>
+
+        <form action="https://api.web3forms.com/submit" method="POST" class="real-estate-form">
+            
+            <input type="hidden" name="access_key" value="02b323f3-36ff-48cc-b54f-8154d27d67f4">
+            
+            <input type="hidden" name="from_name" value="Classwin Investments">
+            <input type="hidden" name="subject" value="Thank you for contacting Classwin!">
+            
+            
+            <input type="checkbox" name="botcheck" class="hidden-field" style="display: none;">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="name" placeholder="Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="emailAddress">Email Address *</label>
+                    <input type="email" id="emailAddress" name="email" placeholder="Email" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number *</label>
+                    <input type="tel" id="phoneNumber" name="phone" placeholder="Phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="enquiryType">Enquiry Type *</label>
+                    <select id="enquiryType" name="enquiry_type" required>
+                        <option value="" disabled selected hidden>Select Interest</option>
+                        <option value="Ongoing Project">Ongoing Project Investment</option>
+                        <option value="Completed Project">Completed Project Tour</option>
+                        <option value="Site Visit">Schedule a Site Visit</option>
+                        <option value="General">General Consultation</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="propertyType">Property Preference</label>
+                    <select id="propertyType" name="property_preference">
+                        <option value="" disabled selected hidden>Select Type</option>
+                        <option value="Luxury Apartment">Luxury Premium Apartment</option>
+                        <option value="Commercial Complex">Commercial Business Space</option>
+                        <option value="Gated Villa">Gated Community Villa</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="budgetRange">Investment Budget</label>
+                    <select id="budgetRange" name="budget_range">
+                        <option value="" disabled selected hidden>Select Budget Range</option>
+                        <option value="Premium">Premium Standard</option>
+                        <option value="Luxury">Elite Luxury Tier</option>
+                        <option value="Institutional">Institutional Global Investment</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="messageText">Message *</label>
+                <textarea id="messageText" name="message" rows="5" placeholder="Tell us about your property requirements..." required></textarea>
+            </div>
+
+            <div class="form-agreement">
+                <input type="checkbox" id="agreementCheckbox" name="consent_agreement" required>
+                <label for="agreementCheckbox">I agree to receive communications regarding listed projects and site details from Classwin.</label>
+            </div>
+
+            <div class="form-submit-container">
+                <button type="submit" class="glass-submit-btn">
+                    Send Message <span class="btn-arrow">&rarr;</span>
+                </button>
+            </div>
+
+        </form>
+    </div>
+</section>
+<div class="popup-overlay" id="thankYouPopup">
+    <div class="glass-popup-card">
+        <div class="popup-icon">&#10004;</div>
+        <h2>Enquiry Received!</h2>
+        <p>Thank you for reaching out to Classwin. A premium asset management consultant has been assigned to your request and will contact you shortly.</p>
+        <button class="popup-close-btn" id="closePopupBtn">Close Window</button>
+    </div>
+</div>
     </main>
 
     <script src="JS/main.js"></script>
     <script src="JS/navigation.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".real-estate-form");
+    const popup = document.getElementById("thankYouPopup");
+    const closeBtn = document.getElementById("closePopupBtn");
+    const submitBtn = form.querySelector(".glass-submit-btn");
+
+    if (!form || !popup || !closeBtn) return;
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault(); 
+
+        
+        if (submitBtn) {
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+        }
+
+        const formData = new FormData(form);
+
+        
+        fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                
+                popup.classList.add("show");
+                form.reset(); 
+            } else {
+                alert("Something went wrong. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("Submission failed. Check your internet connection.");
+        })
+        .finally(() => {
+            
+            if (submitBtn) {
+                submitBtn.innerHTML = 'Send Message <span class="btn-arrow">&rarr;</span>';
+                submitBtn.disabled = false;
+            }
+        });
+    });
+
+    
+    closeBtn.addEventListener("click", () => {
+        popup.classList.remove("show");
+    });
+});
+    </script>
     
 </body>
 </html>
