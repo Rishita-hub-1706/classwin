@@ -269,3 +269,129 @@ html {
         min-height: 220px;
     }
 }
+
+.master-plan-layout {
+    width: 100%;
+    background-color: #edf1f4;
+    padding: 60px 5% 100px 5%;
+    box-sizing: border-box;
+}
+
+.glass-blueprint-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 32px;
+    padding: 50px 40px;
+    box-shadow: 0 30px 60px rgba(2, 18, 47, 0.05);
+    box-sizing: border-box;
+}
+
+.blueprint-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.blueprint-badge {
+    display: inline-block;
+    font-family: 'Saira', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #495B7D;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.blueprint-header h2 {
+    font-family: 'Saira', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #02122F;
+    margin: 0 0 12px 0;
+}
+
+.blueprint-header p {
+    font-family: 'Saira', sans-serif;
+    font-size: 1rem;
+    color: #495B7D;
+    margin: 0 auto;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+.blueprint-frame {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border: 1px solid rgba(2, 18, 47, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(2, 18, 47, 0.04);
+    position: relative;
+}
+
+.blueprint-frame a {
+    display: block;
+    text-decoration: none;
+    cursor: zoom-in;
+}
+
+.blueprint-map-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blueprint-zoom-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(3, 25, 63, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-family: 'Saira', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.zoom-icon {
+    font-size: 1.1rem;
+}
+
+.blueprint-frame:hover .blueprint-map-img {
+    transform: scale(1.02);
+}
+
+.blueprint-frame:hover .blueprint-zoom-overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 768px) {
+    .glass-blueprint-card {
+        padding: 35px 20px;
+        border-radius: 24px;
+    }
+    .blueprint-header h2 {
+        font-size: 1.8rem;
+    }
+}
