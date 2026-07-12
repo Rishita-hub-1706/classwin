@@ -1,5 +1,92 @@
 
+/* 1. Global Box Sizing & Fluid Layouts */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevents broken horizontal scrolling on mobile */
+    font-size: 16px;    /* Base standard */
+}
+
+/* 2. Fluid Image Handling (Stops images from breaking layouts) */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 3. Global Container (Use this class for all main page blocks) */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Essential side spacing for mobile screens */
+}
+
+
+/* ========================================== */
+/* 4. Global Media Queries (The Breakpoints)  */
+/* ========================================== */
+
+/* --- Tablet Devices (Landscape & Portrait) --- */
+@media (max-width: 1024px) {
+    html {
+        font-size: 15px; /* Scaled down typography for smaller viewports */
+    }
+    
+    /* Switch 2-column structures (like your hero banner) to single column */
+    .hero-container {
+        grid-template-columns: 1fr;
+        grid-gap: 40px;
+        text-align: center;
+    }
+
+    .hero-content {
+        align-items: center;
+    }
+}
+
+/* --- Mobile Devices (Smartphones) --- */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px; /* Scaled down further for readability on phones */
+    }
+
+    /* Adjust padding so sections don't look awkwardly tall on mobile */
+    .hero-section, 
+    .features-section, 
+    .gallery-section {
+        padding: 50px 15px;
+    }
+
+    /* Force grids to single columns if cards get squished */
+    .image-grid, 
+    .features-grid {
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: auto; /* Lets contents dictate natural height */
+        grid-gap: 24px;
+    }
+
+    /* Prevent the gallery images from feeling infinitely long */
+    .gallery-card {
+        height: 300px; 
+    }
+    
+    /* Make button groups stack nicely */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+}
 body {
     margin: 0;
     padding: 0;
