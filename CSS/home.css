@@ -103,11 +103,11 @@ body, html {
 .banner-section {
     padding-top: 140px;
     display: flex !important;       
-    flex-direction: row !important; /* Strictly forces side-by-side positioning */
-    align-items: center !important; /* Centers elements vertically relative to each other */
+    flex-direction: row !important; /* Forces Image Left, Matter Right on desktop */
+    align-items: center !important; 
     justify-content: space-between !important;
-    gap: 60px;                      
-    margin: 100px auto !important;  /* Balanced spacing between carousel and footer */
+    gap: 60px;                              
+    margin: 100px auto !important;  
     width: 90% !important;                 
     max-width: 1400px !important;
     box-sizing: border-box;
@@ -115,7 +115,7 @@ body, html {
 
 /* Left-Side Image Column Wrapper */
 .banner-section .mid-banner {
-    flex: 1;                        
+    flex: 1;                                
     width: 50% !important;          
     max-width: 50%;
     border-radius: 25px;   
@@ -124,8 +124,8 @@ body, html {
     position: relative;
     z-index: 20;
     
-    /* Animation Initial States: Hidden and Left offset */
-    opacity: 0;                    
+    /* Animation: Slides smoothly out from the left screen boundary */
+    opacity: 0;                     
     transform: translateX(-100px); 
     transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
                 transform 1s cubic-bezier(0.25, 1, 0.5, 1);
@@ -146,7 +146,7 @@ body, html {
     font-family: 'Saira', sans-serif;
     text-align: left;               
     
-    /* Animation Initial States: Hidden and Right offset */
+    /* Animation: Slides smoothly out from the right screen boundary */
     opacity: 0;
     transform: translateX(100px);
     transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
@@ -154,7 +154,7 @@ body, html {
 }
 
 .banner-section .banner-content h2 {
-    color: rgb(2, 2, 62);             
+    color: rgb(2, 2, 62);              
     margin: 0 0 20px 0;  
     font-family: "Righteous", sans-serif;
     font-weight: 400;
@@ -171,14 +171,12 @@ body, html {
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.5px;
-    
 }
-
 
 .banner-section .mid-banner.reveal,
 .banner-section .banner-content.reveal {
     opacity: 1 !important;
-    transform: translateX(0) !important; /* Smoothly snaps back into position row alignment */
+    transform: translateX(0) !important; /* Resets positioning coordinates cleanly */
 }
 
 
