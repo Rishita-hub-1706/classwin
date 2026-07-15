@@ -497,6 +497,17 @@
     gap: 40px;
 }
 
+.featured-projects-section .section-sub-heading {
+    font-family: 'Saira', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #7694e8;   
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
 .header-left {
     flex: 1;
 }
