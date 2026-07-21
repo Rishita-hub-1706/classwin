@@ -1,6 +1,3 @@
-/* ==========================================================================
-   INTEGRATED AUTOMATIC PAGE HIGHLIGHTER & FLUID TRACKING ENGINE
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     
     // --- STEP 1: AUTOMATIC CURRENT PAGE DETECTION & HIGHLIGHTING ---
@@ -82,9 +79,59 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     
-    // Readjust pill width/position seamlessly if user resizes browser window mid-session
-    window.addEventListener("resize", () => {
-        const currentActive = document.querySelector(".nav-item.active");
-        if (currentActive) positionPill(currentActive);
-    });
+    let resizeTimeout;
+
+window.addEventListener("resize", () => {
+
+    clearTimeout(resizeTimeout);
+
+    resizeTimeout = setTimeout(() => {
+
+        const currentActive =
+            document.querySelector(".nav-item.active");
+
+        if(currentActive){
+
+            positionPill(currentActive);
+
+        }
+
+    },150);
+
 });
+
+
+
+const menuBtn=document.querySelector(".menu-toggle");
+const navMenu=document.querySelector(".nav-links-container");
+
+if(menuBtn){
+
+menuBtn.addEventListener("click",()=>{
+
+    navMenu.classList.toggle("active");
+
+    menuBtn.textContent=
+
+    navMenu.classList.contains("active")
+
+    ?"✕":"☰";
+    
+       });
+
+}  
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navMenu.classList.remove("active");
+
+        menuBtn.textContent = "☰";
+
+    });
+
+});
+

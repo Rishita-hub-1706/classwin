@@ -305,15 +305,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    flex-wrap: wrap;          
+    gap: 40px;                
+
     padding: 60px 40px;
-    
-   
+
     background: rgba(255, 255, 255, 0.45);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 32px 32px 0 0; 
-    
+    border-radius: 32px 32px 0 0;
+
     box-shadow: 0 20px 50px rgba(139, 163, 197, 0.15);
     font-family: 'Saira', sans-serif;
     font-size: 16px;
@@ -321,8 +323,9 @@ body {
 }
 
 .footer-heading {
-    flex: 1;
-    margin: 0 20px;
+    flex: 1 1 220px;
+    min-width: 220px;
+    margin: 0;
 }
 
 
@@ -469,6 +472,149 @@ body {
     letter-spacing: 0.5px;
 }
 
+
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    font-size:2rem;
+    color:#02122F;
+    cursor:pointer;
+    z-index:10001;
+}
+
+@media (max-width:1200px){
+
+    .navbar{
+
+        height:70px;
+
+        padding:0 20px;
+
+    }
+
+    .menu-toggle{
+
+        display:block;
+
+    }
+
+    .nav-links-container{
+
+        position:fixed;
+
+        top:0;
+
+        right:-100%;
+
+        width:280px;
+
+        height:100vh;
+
+        background:white;
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        transition:.4s;
+
+        z-index:9999;
+
+    }
+
+    .nav-links{
+
+        flex-direction:column;
+
+        gap:25px;
+    }
+
+    .nav-links-container.active{
+
+        right:0;
+
+    }
+
+    .nav-spacer{
+
+        display:none;
+
+    }
+
+}
+
+
+/* Tablet */
+@media (max-width:1024px){
+
+    .footer{
+        width:95%;
+    }
+
+    .footer-container{
+        padding:50px 30px;
+        gap:35px;
+    }
+
+    .footer-heading{
+        flex:1 1 calc(50% - 20px);
+    }
+
+}
+
+/* Mobile */
+@media (max-width:786px){
+
+    .footer{
+        width:95%;
+        margin:60px auto 30px;
+    }
+
+    .footer-container{
+        flex-direction:column;
+        gap:30px;
+        padding:35px 25px;
+    }
+
+    .footer-heading{
+        width:100%;
+    }
+
+    .footer-heading h2{
+        font-size:1.25rem;
+    }
+
+    .footer-bottom-bar{
+        padding:18px;
+    }
+
+}
+
+/* Small Phones */
+@media (max-width:480px){
+
+    .footer-container{
+        padding:30px 20px;
+    }
+
+    .footer-heading h2{
+        font-size:1.1rem;
+    }
+
+    .footer-1 p,
+    .footer-links li,
+    .footer-contact-list li,
+    .footer-social-links li{
+
+        font-size:.92rem;
+
+    }
+
+}
 
 
 
