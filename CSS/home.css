@@ -556,3 +556,145 @@ body, html {
         font-size: 2.4rem;
     }
 }
+
+@media (max-width:1024px){
+
+    .carousel{
+
+        margin-top:140px;
+
+    }
+
+    .card{
+
+        width:75vw;
+
+        height:65vh;
+
+    }
+
+    .card-overlay{
+
+        padding:2rem;
+
+    }
+
+    .card-overlay h3{
+
+        font-size:2rem;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .carousel{
+
+        margin-top:110px;
+
+    }
+
+    .group{
+
+        gap:20px;
+
+    }
+
+    .card{
+
+        width:90vw;
+
+        height:55vh;
+
+    }
+
+    .card-overlay{
+
+        opacity:1;
+
+        transform:none;
+
+        padding:1.5rem;
+
+        background:linear-gradient(
+            to top,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.35),
+            transparent
+        );
+
+    }
+
+    .card-overlay h3{
+
+        font-size:1.6rem;
+
+    }
+
+    .card-overlay p{
+
+        font-size:.9rem;
+
+        line-height:1.5;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .card{
+
+        width:95vw;
+
+        height:48vh;
+
+        border-radius:16px;
+
+    }
+
+    .card-overlay{
+
+        padding:1rem;
+
+    }
+
+    .card-overlay h3{
+
+        font-size:1.3rem;
+
+    }
+
+    .card-overlay p{
+
+        font-size:.82rem;
+
+    }
+
+}
+@media (hover:none){
+
+    .carousel:hover .card{
+
+        transform:none;
+
+        filter:none;
+
+    }
+
+    .carousel .card:hover{
+
+        transform:none;
+
+        box-shadow:none;
+
+    }
+
+    .card:hover img{
+
+        transform:none;
+
+    }
+
+}
