@@ -79,6 +79,7 @@ html {
     display: flex;
     align-items: center;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 .glass-primary-btn {
@@ -116,28 +117,110 @@ html {
     transform: translateX(4px);
 }
 
-@media (max-width: 768px) {
-    .wide-project-hero-full {
-        min-height: 550px;
+/* ===========================
+   Tablets (992px and below)
+=========================== */
+@media (max-width: 992px) {
+
+    .wide-project-hero-full{
+        min-height:550px;
+        padding:0 6%;
     }
-    .hero-image-overlay-full {
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 70%, rgba(255, 255, 255, 0.4) 100%);
+
+    .wide-hero-details-full{
+        max-width:520px;
     }
-    .wide-hero-details-full {
-        max-width: 100%;
-        padding: 60px 0;
+
+    .wide-hero-details-full h2{
+        font-size:3rem;
     }
-    .wide-hero-details-full h2 {
-        font-size: 2.6rem;
+
+    .project-specs-line{
+        font-size:1.05rem;
     }
+
 }
 
-@media (max-width: 576px) {
-    .wide-hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
+
+/* ===========================
+   Mobile (768px and below)
+=========================== */
+@media (max-width:768px){
+
+    .wide-project-hero-full{
+        min-height:500px;
+        padding:0 7%;
+        justify-content:center;
     }
+
+    .hero-image-overlay-full{
+        background:linear-gradient(
+            to bottom,
+            rgba(255,255,255,.95) 0%,
+            rgba(255,255,255,.88) 65%,
+            rgba(255,255,255,.45) 100%
+        );
+    }
+
+    .wide-hero-details-full{
+        max-width:100%;
+        padding:60px 0;
+        text-align:center;
+        align-items:center;
+    }
+
+    .wide-hero-details-full h2{
+        font-size:2.5rem;
+    }
+
+    .project-specs-line{
+        font-size:1rem;
+    }
+
+    .wide-hero-actions{
+        gap:18px;
+    }
+
+}
+
+
+/* ===========================
+   Small Phones (576px and below)
+=========================== */
+@media (max-width:576px){
+
+    .wide-project-hero-full{
+        min-height:460px;
+        padding:0 20px;
+    }
+
+    .project-tag{
+        font-size:.75rem;
+    }
+
+    .wide-hero-details-full h2{
+        font-size:2rem;
+    }
+
+    .project-specs-line{
+        font-size:.95rem;
+        line-height:1.6;
+    }
+
+    .wide-hero-actions{
+        flex-direction:column;
+        width:100%;
+        gap:15px;
+    }
+
+    .glass-primary-btn{
+        width:100%;
+    }
+
+    .text-link{
+        text-align:center;
+    }
+
 }
 .features-grid-section {
     width: 100%;
@@ -266,8 +349,37 @@ html {
         grid-template-columns: 1fr;
         gap: 25px;
     }
+
     .feature-parent-card {
-        min-height: 220px;
+        min-height: 320px;
+    }
+}
+
+/* Phones & Touch Tablets */
+@media (hover: none) and (pointer: coarse) {
+
+    .feature-child-popup {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 20px 0 0;
+    }
+
+    .feature-child-popup p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .feature-parent-card:hover .feature-icon-wrapper {
+        transform: none;
+    }
+
+    .feature-parent-card:hover h3 {
+        opacity: 1;
     }
 }
 .master-plan-layout-wide {
@@ -386,15 +498,90 @@ html {
     transform: translateX(-50%) translateY(0);
 }
 
-@media (max-width: 768px) {
+/* ===========================
+   Tablets (992px and below)
+=========================== */
+@media (max-width: 992px) {
+
     .glass-blueprint-card-wide {
-        padding: 30px 20px;
+        padding: 40px 30px;
+    }
+
+    .blueprint-header-wide h2 {
+        font-size: 2.2rem;
+    }
+
+    .blueprint-header-wide p {
+        font-size: 0.95rem;
+    }
+
+}
+
+
+/* ===========================
+   Mobile (768px and below)
+=========================== */
+@media (max-width: 768px) {
+
+    .master-plan-layout-wide {
+        padding: 60px 5%;
+    }
+
+    .glass-blueprint-card-wide {
+        padding: 35px 20px;
         border-radius: 24px;
     }
-    .blueprint-header-wide h2 {
-        font-size: 1.9rem;
+
+    .blueprint-header-wide {
+        margin-bottom: 30px;
     }
+
+    .blueprint-header-wide h2 {
+        font-size: 1.8rem;
+    }
+
+    .blueprint-header-wide p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
 }
+
+
+/* ===========================
+   Small Phones (576px and below)
+=========================== */
+@media (max-width: 576px) {
+
+    .blueprint-badge-wide {
+        font-size: 0.75rem;
+    }
+
+    .blueprint-header-wide h2 {
+        font-size: 1.6rem;
+    }
+
+    .blueprint-header-wide p {
+        font-size: 0.9rem;
+    }
+
+    .blueprint-zoom-overlay-wide {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%);
+        bottom: 15px;
+        padding: 10px 18px;
+        font-size: 0.8rem;
+    }
+
+    .blueprint-frame-wide:hover .blueprint-map-img-wide {
+        transform: none;
+    }
+
+}
+
+
+
 .project-gallery-section {
     width: 100%;
     background-color: #edf1f4;
@@ -521,4 +708,99 @@ html {
     .gallery-header h2 {
         font-size: 2rem;
     }
+}
+
+/* ===========================
+   Tablets (992px and below)
+=========================== */
+@media (max-width: 992px) {
+
+    .gallery-grid-wide{
+        gap:25px;
+        grid-auto-rows:240px;
+    }
+
+    .gallery-header h2{
+        font-size:2.3rem;
+    }
+
+    .gallery-header p{
+        font-size:.95rem;
+    }
+
+}
+
+
+/* ===========================
+   Mobile (768px and below)
+=========================== */
+@media (max-width:768px){
+
+    .gallery-grid-wide{
+        grid-template-columns:1fr;
+        grid-auto-rows:230px;
+        gap:20px;
+    }
+
+    .full-row{
+        grid-column:span 1;
+    }
+
+    .gallery-header h2{
+        font-size:2rem;
+    }
+
+    .gallery-header p{
+        font-size:.95rem;
+    }
+
+}
+
+
+/* ===========================
+   Small Phones (576px and below)
+=========================== */
+@media (max-width:576px){
+
+    .project-gallery-section{
+        padding:60px 5%;
+    }
+
+    .gallery-grid-wide{
+        grid-auto-rows:210px;
+    }
+
+    .gallery-badge{
+        font-size:.75rem;
+    }
+
+    .gallery-header h2{
+        font-size:1.8rem;
+    }
+
+    .gallery-header p{
+        font-size:.9rem;
+    }
+
+}
+
+
+/* ===========================
+   Touch Devices
+=========================== */
+@media (hover: none) and (pointer: coarse){
+
+    .gallery-overlay-wide{
+        opacity:1;
+        visibility:visible;
+    }
+
+    .gallery-item-wide:hover{
+        transform:none;
+    }
+
+    .gallery-item-wide:hover img{
+        transform:none;
+    }
+
 }
