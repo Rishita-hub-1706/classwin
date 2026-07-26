@@ -147,6 +147,53 @@
         height: 350px;
     }
 }
+/* ===========================
+   Mobile Phones
+=========================== */
+@media (max-width: 576px) {
+
+    .hero-section{
+        padding:70px 20px;
+        min-height:auto;
+    }
+
+    .hero-content h1{
+        font-size:2.5rem;
+    }
+
+    .hero-tag{
+        font-size:.8rem;
+        letter-spacing:1.5px;
+    }
+
+    .hero-details{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .detail-item{
+        justify-content:flex-start;
+        text-align:left;
+        padding:15px;
+    }
+
+    .hero-actions{
+        width:100%;
+    }
+
+    .btn-primary{
+        width:100%;
+        text-align:center;
+        padding:15px 20px;
+        box-sizing:border-box;
+    }
+
+    .image-wrapper{
+        height:260px;
+        border-radius:16px;
+    }
+
+}
 
 .features-grid-section {
     width: 100%;
@@ -263,21 +310,91 @@
     transform: scale(1) translateY(0);
 }
 
+/* ===========================
+   Tablets
+=========================== */
 @media (max-width: 992px) {
-    .features-container {
+
+    .features-container{
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
+
 }
 
+
+/* ===========================
+   Mobile
+=========================== */
 @media (max-width: 768px) {
-    .features-container {
+
+    .features-container{
         grid-template-columns: 1fr;
         gap: 25px;
     }
-    .feature-parent-card {
+
+    .feature-parent-card{
         min-height: 220px;
     }
+
+}
+
+
+/* ===========================
+   Touch Devices
+   (Phones & Touch Tablets)
+=========================== */
+@media (hover: none) and (pointer: coarse) {
+
+    .feature-parent-card{
+        min-height: 260px;
+    }
+
+    .feature-icon-wrapper{
+        margin-bottom:20px;
+    }
+
+    .feature-child-popup{
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 15px 0 0;
+    }
+
+    .feature-parent-card h3{
+        opacity:1;
+        margin-bottom:10px;
+    }
+
+    .feature-child-popup p{
+        font-size:0.95rem;
+        line-height:1.7;
+    }
+
+    /* Disable hover animation on touch devices */
+    .feature-parent-card:hover{
+        background: rgba(255,255,255,0.45);
+        border-color: rgba(255,255,255,0.6);
+    }
+
+    .feature-parent-card:hover .feature-icon-wrapper{
+        transform:none;
+    }
+
+    .feature-parent-card:hover h3{
+        opacity:1;
+    }
+
+    .feature-parent-card:hover .feature-child-popup{
+        opacity:1;
+        visibility:visible;
+        transform:none;
+    }
+
 }
 .gallery-section {
     background-color: #ffffff;
@@ -302,7 +419,7 @@
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 30px;
     grid-auto-rows: 400px;
 }
@@ -339,4 +456,65 @@
         grid-auto-rows: 320px;
         grid-gap: 20px;
     }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .gallery-section{
+        padding: 70px 4%;
+    }
+
+    .gallery-title{
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .image-grid{
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 300px;
+        gap: 20px;
+    }
+
+}
+
+
+@media (max-width: 768px){
+
+    .gallery-section{
+        padding: 60px 5%;
+    }
+
+    .gallery-title{
+        font-size: 1.8rem;
+        margin-bottom: 35px;
+    }
+
+    .image-grid{
+        grid-template-columns: 1fr;
+        grid-auto-rows: 260px;
+        gap: 18px;
+    }
+
+    .gallery-card{
+        border-radius: 14px;
+    }
+
+}
+
+
+@media (max-width: 480px){
+
+    .gallery-section{
+        padding: 50px 4%;
+    }
+
+    .gallery-title{
+        font-size: 1.6rem;
+    }
+
+    .image-grid{
+        grid-auto-rows: 220px;
+        gap: 15px;
+    }
+
 }
