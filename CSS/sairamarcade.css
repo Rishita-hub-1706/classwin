@@ -2,19 +2,19 @@
 
 /* Overriding the generic page padding so our hero card can stretch wide */
 .project-page-content {
-    margin-top: 0 !important;   /* Let the hero card slide smoothly right up to the top screen edge */
-    padding: 0 !important;      /* Removes constraints to allow full structural layout breathing room */
-    background-color: transparent;  /* Matches your global dark premium background theme */
+    margin-top: 0 !important;   
+    padding: 0 !important;      
+    background-color: transparent;  
     box-sizing: border-box;
 }
 
 /* Core Structural Container for the Card */
 .project-hero-card {
     position: relative;
-    width: 90%;                 /* Matches the general width bounds of your website sections */
+    width: 90%;                 
     max-width: 1400px;
-    height: 65vh;               /* Captures exactly 65% of the browser screen height  */
-    margin: 140px auto 60px auto; /* 140px Top spacing pushes it out from underneath the floating navbar */
+    height: 65vh;               
+    margin: 140px auto 60px auto; 
     border-radius: 30px;        
     overflow: hidden;           
     box-shadow: 0 20px 50px rgba(232, 222, 222, 0.4);
@@ -24,15 +24,14 @@
 .project-hero-card .hero-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;          /* Prevents compression lines, crops image gracefully across viewports */
+    object-fit: cover;          
     display: block;
 }
 
 /* Elegant Dark Gradient Cover Wrapper */
 .project-hero-card .hero-overlay {
     position: absolute;
-    inset: 0;                   /* Stretches cover entirely over the image card square */
-    /* Deeper dark gradient at bottom for text readability, blending to clear at the top navbar region */
+    inset: 0;                   
     background: linear-gradient(to top, 
                 rgba(2, 18, 47, 0.95) 0%, 
                 rgba(2, 18, 47, 0.4) 60%, 
@@ -40,14 +39,14 @@
     
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;  /* Locks content text cluster to the lower third of the image card */
-    padding: 60px 80px;         /* Expands inner structural spacing alignment margins */
+    justify-content: flex-end;  
+    padding: 60px 80px;         
     box-sizing: border-box;
 }
 
 /* Typography Cluster Layout and Styling */
 .hero-text-cluster {
-    max-width: 800px;           /* Stops text strings from trailing too long across ultra-wide monitors */
+    max-width: 800px;           
     text-align: left;
 }
 
@@ -64,9 +63,9 @@
 
 .hero-text-cluster h1 {
     font-family: 'Saira', sans-serif;
-    font-size: 3.5rem;          /* Distinct, commanding headline presence */
+    font-size: 3.5rem;         
     font-weight: 700;
-    color: #F0ECDD;             /* Golden-cream shade matching your theme */
+    color: #F0ECDD;            
     margin: 0 0 15px 0;
     line-height: 1.1;
 }
@@ -78,24 +77,143 @@
     color: #8BA3C5;
     margin: 0;
 }
+/* =========================
+   Large Tablets
+   (1024px and below)
+========================= */
+@media (max-width:1024px){
+
+    .project-hero-card{
+        width:92%;
+        height:60vh;
+        margin:120px auto 50px;
+    }
+
+    .project-hero-card .hero-overlay{
+        padding:50px 60px;
+    }
+
+    .hero-text-cluster h1{
+        font-size:3rem;
+    }
+
+    .hero-text-cluster p{
+        font-size:1.15rem;
+    }
+}
+
+
+/* =========================
+   Tablets
+   (768px and below)
+========================= */
+@media (max-width:768px){
+
+    .project-hero-card{
+        width:94%;
+        height:55vh;
+        margin:110px auto 40px;
+        border-radius:24px;
+    }
+
+    .project-hero-card .hero-overlay{
+        padding:40px;
+    }
+
+    .hero-text-cluster h1{
+        font-size:2.4rem;
+    }
+
+    .hero-text-cluster p{
+        font-size:1rem;
+    }
+
+    .hero-text-cluster .project-tag{
+        font-size:.8rem;
+    }
+}
+
+
+/* =========================
+   Phones
+   (576px and below)
+========================= */
+@media (max-width:576px){
+
+    .project-hero-card{
+        width:95%;
+        height:420px;
+        margin:95px auto 30px;
+        border-radius:20px;
+    }
+
+    .project-hero-card .hero-overlay{
+        padding:25px;
+        background:linear-gradient(
+            to top,
+            rgba(2,18,47,.97) 5%,
+            rgba(2,18,47,.55) 60%,
+            rgba(2,18,47,.15) 100%
+        );
+    }
+
+    .hero-text-cluster h1{
+        font-size:2rem;
+        line-height:1.15;
+    }
+
+    .hero-text-cluster p{
+        font-size:.95rem;
+        line-height:1.6;
+    }
+
+    .hero-text-cluster .project-tag{
+        font-size:.75rem;
+        letter-spacing:1px;
+    }
+}
+
+
+/* =========================
+   Small Phones
+   (400px and below)
+========================= */
+@media (max-width:400px){
+
+    .project-hero-card{
+        height:380px;
+    }
+
+    .project-hero-card .hero-overlay{
+        padding:20px;
+    }
+
+    .hero-text-cluster h1{
+        font-size:1.75rem;
+    }
+
+    .hero-text-cluster p{
+        font-size:.9rem;
+    }
+}
 
 
 /* The outer master container shifts into a row engine to lock elements side-by-side */
 .project-overview-section {
     width: 90%;
     max-width: 1400px;
-    margin: 60px auto;           /* Centers the entire master section on the page */
+    margin: 60px auto;         
     display: flex;
-    flex-direction: row;         /* Forces paragraph and cards onto the same horizontal line */
-    align-items: stretch;        /* CRITICAL: Stretches the cards grid to match the exact height of the paragraph */
+    flex-direction: row;         
+    align-items: stretch;        
     justify-content: space-between;
-    gap: 5%;                     /* Creates a clean breathing space between the text block and the grid */
+    gap: 5%;                     
     box-sizing: border-box;
 }
 
 /* Left-Side Column Constraints */
 .overview-content {
-    width: 40%;                  /* Controls paragraph row width so it leaves space for the cards */
+    width: 40%;                 
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -121,10 +239,10 @@
 
 /* Right-Side Column: 2x2 Grid Layout Wrapper */
 .overview-cards-grid {
-    width: 55%;                  /* Stretches across the remaining layout space on the right */
+    width: 55%;                  
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Generates exactly 2 side-by-side column tracks */
-    gap: 24px;                   /* Clean, distinct padding gutters between the cards */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 24px;                   
 }
 
 /* Individual Mini Card Styles */
@@ -135,22 +253,22 @@
     padding: 24px;
     
     display: flex;
-    flex-direction: row;         /* Anchors icon on the left, stacks text cleanly on the right */
-    align-items: flex-start;     /* Keeps icons anchored to the top left of the card */
-    gap: 16px;                   /* Horizontal space between the PNG image icon and the text strings */
+    flex-direction: row;         
+    align-items: flex-start;     
+    gap: 16px;                   
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* Constrains the PNG Icon size on the left */
 .mini-card-icon img {
-    width: 45px;                 /* Sized slightly smaller than the 3x3 grid icons to look balanced */
+    width: 45px;                
     height: 45px;
     object-fit: contain;
     display: block;
-    flex-shrink: 0;              /* Stops the flexbox container from squeezing the icon shape */
+    flex-shrink: 0;              
 }
 
-/* Text Content Wrapper on the right side of the card */
+
 .mini-card-body {
     text-align: left;
 }
@@ -160,7 +278,7 @@
     font-size: 1.25rem;
     font-weight: 700;
     color: #F0ECDD;
-    margin: 0 0 8px 0;           /* Clean cushion space underneath the item heading */
+    margin: 0 0 8px 0;          
 }
 
 .mini-card-body p {
@@ -169,6 +287,150 @@
     line-height: 1.5;
     color: #8BA3C5;
     margin: 0;
+}
+/* =========================
+   Large Tablets
+   (1024px and below)
+========================= */
+@media (max-width:1024px){
+
+    .project-overview-section{
+        width:92%;
+        gap:40px;
+    }
+
+    .overview-content{
+        width:42%;
+    }
+
+    .overview-cards-grid{
+        width:58%;
+        gap:20px;
+    }
+
+    .overview-content h2{
+        font-size:2rem;
+    }
+
+    .overview-content p{
+        font-size:1rem;
+    }
+
+}
+
+
+/* =========================
+   Tablets
+   (768px and below)
+========================= */
+@media (max-width:768px){
+
+    .project-overview-section{
+        width:94%;
+        flex-direction:column;
+        gap:40px;
+    }
+
+    .overview-content,
+    .overview-cards-grid{
+        width:100%;
+    }
+
+    .overview-content{
+        text-align:center;
+    }
+
+    .overview-cards-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+    }
+
+    .overview-content h2{
+        font-size:1.9rem;
+    }
+
+}
+
+
+/* =========================
+   Phones
+   (576px and below)
+========================= */
+@media (max-width:576px){
+
+    .project-overview-section{
+        width:95%;
+        margin:40px auto;
+        gap:30px;
+    }
+
+    .overview-content{
+        text-align:center;
+    }
+
+    .overview-content h2{
+        font-size:1.8rem;
+    }
+
+    .overview-content p{
+        font-size:.95rem;
+        line-height:1.7;
+    }
+
+    .overview-cards-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .mini-feature-card{
+        padding:20px;
+    }
+
+    .mini-card-icon img{
+        width:40px;
+        height:40px;
+    }
+
+    .mini-card-body h3{
+        font-size:1.1rem;
+    }
+
+    .mini-card-body p{
+        font-size:.9rem;
+    }
+
+}
+
+
+/* =========================
+   Small Phones
+   (400px and below)
+========================= */
+@media (max-width:400px){
+
+    .project-overview-section{
+        width:96%;
+    }
+
+    .mini-feature-card{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:15px;
+    }
+
+    .mini-card-body{
+        text-align:center;
+    }
+
+    .mini-card-body h3{
+        font-size:1rem;
+    }
+
+    .mini-card-body p{
+        font-size:.88rem;
+    }
+
 }
 
 
@@ -180,7 +442,7 @@
     margin: 120px auto;          
     display: flex;
     flex-direction: row;
-    align-items: flex-start;     /* Aligns text top edge cleanly with image top edge */
+    align-items: flex-start;     
     justify-content: space-between;
     gap: 5%;
     box-sizing: border-box;
@@ -211,8 +473,8 @@
 .gallery-right-viewport {
     width: 60%;
     display: flex;
-    flex-direction: column;      /* Stacks the image track and the controls vertically */
-    gap: 25px;                   /* Creates clean breathing room between images and buttons */
+    flex-direction: column;     
+    gap: 25px;                   
 }
 
 /* Sliding Container Strip */
@@ -251,8 +513,8 @@
 .gallery-controls {
     display: flex;
     gap: 16px;                   
-    justify-content: flex-end;   /* CRITICAL: Pushes the button pair completely to the right corner */
-    padding-right: 10px;         /* Optional visual alignment cushion */
+    justify-content: flex-end;  
+    padding-right: 10px;        
 }
 
 .ctrl-btn {
@@ -272,17 +534,157 @@
     /* IMPROVED: Added a high-end cubic-bezier curve for a premium, snappy feel */
     transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
                 border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Adds a subtle bouncy snap */
+                transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); 
 }
 
 .ctrl-btn:hover {
-    background-color: rgb(2, 2, 62); /* Stays the same as requested */
-    border-color: #F0ECDD;           /* FIX: Glows beautifully to match your site's cream color on hover */
-    color: #F0ECDD;                  /* FIX: Arrow lights up cleanly instead of turning dark/invisible */
-    transform: translateY(-4px) scale(1.08); /* Sophisticated lift up + tiny grow effect */
+    background-color: rgb(2, 2, 62); 
+    border-color: #F0ECDD;           
+    color: #F0ECDD;                  
+    transform: translateY(-4px) scale(1.08); 
+}
+
+/* =========================
+   Large Tablets
+   (1024px and below)
+========================= */
+@media (max-width:1024px){
+
+    .gallery-master-section{
+        width:92%;
+        gap:40px;
+        margin:100px auto;
+    }
+
+    .gallery-left-content{
+        width:38%;
+    }
+
+    .gallery-right-viewport{
+        width:58%;
+    }
+
+    .gallery-text h2{
+        font-size:2rem;
+    }
+
+    .gallery-text p{
+        font-size:1rem;
+    }
+
+    .gallery-card{
+        width:280px;
+        height:380px;
+    }
+
 }
 
 
+/* =========================
+   Tablets
+   (768px and below)
+========================= */
+@media (max-width:768px){
+
+    .gallery-master-section{
+        width:94%;
+        flex-direction:column;
+        gap:40px;
+        margin:80px auto;
+    }
+
+    .gallery-left-content,
+    .gallery-right-viewport{
+        width:100%;
+    }
+
+    .gallery-text{
+        text-align:center;
+    }
+
+    .gallery-card{
+        width:260px;
+        height:340px;
+    }
+
+    .gallery-controls{
+        justify-content:center;
+        padding-right:0;
+    }
+
+}
+
+
+/* =========================
+   Phones
+   (576px and below)
+========================= */
+@media (max-width:576px){
+
+    .gallery-master-section{
+        width:95%;
+        margin:60px auto;
+        gap:30px;
+    }
+
+    .gallery-text h2{
+        font-size:1.8rem;
+    }
+
+    .gallery-text p{
+        font-size:.95rem;
+        line-height:1.7;
+    }
+
+    .gallery-track{
+        gap:18px;
+    }
+
+    .gallery-card{
+        width:220px;
+        height:300px;
+        border-radius:18px;
+    }
+
+    .ctrl-btn{
+        width:48px;
+        height:48px;
+        font-size:1.5rem;
+    }
+
+}
+
+
+/* =========================
+   Small Phones
+   (400px and below)
+========================= */
+@media (max-width:400px){
+
+    .gallery-master-section{
+        width:96%;
+    }
+
+    .gallery-card{
+        width:190px;
+        height:260px;
+    }
+
+    .gallery-text h2{
+        font-size:1.6rem;
+    }
+
+    .gallery-text p{
+        font-size:.9rem;
+    }
+
+    .ctrl-btn{
+        width:42px;
+        height:42px;
+        font-size:1.3rem;
+    }
+
+}
 
 
 
@@ -444,4 +846,82 @@
     color: #495B7D;             
     text-align: center;
     font-weight: 500;
+}
+
+@media (max-width: 992px) {
+
+    .amenities-grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .amenities-section{
+        width: 100%;
+        margin: 80px auto;
+        padding: 60px 5%;
+        border-radius: 0;
+    }
+
+    .section-header h2{
+        font-size: 2.2rem;
+    }
+
+    .amenities-grid{
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+}
+
+
+@media (hover: none) and (pointer: coarse){
+
+    .flip-card{
+        height:auto;
+    }
+
+    .flip-card-inner{
+        display:flex;
+        flex-direction:column;
+        transform:none !important;
+        gap:20px;
+    }
+
+    .flip-card-front,
+    .flip-card-back{
+        position:static;
+        transform:none;
+        width:100%;
+        height:auto;
+        min-height:auto;
+        box-shadow:none;
+        border:none;
+        background:transparent;
+        backdrop-filter:none;
+        -webkit-backdrop-filter:none;
+        padding:0;
+    }
+
+    .flip-card-front{
+        display:flex;
+    }
+
+    .flip-card-back{
+        display:flex;
+    }
+
+    .flip-card{
+        background:rgba(255,255,255,.45);
+        backdrop-filter:blur(20px);
+        -webkit-backdrop-filter:blur(20px);
+        border:1px solid rgba(255,255,255,.6);
+        border-radius:28px;
+        padding:35px 25px;
+        box-shadow:0 15px 35px rgba(139,163,197,.15);
+    }
+
 }
